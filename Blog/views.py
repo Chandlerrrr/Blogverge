@@ -37,6 +37,7 @@ class PostDetailView(DetailView):
 
 class PostCreateView(LoginRequiredMixin, CreateView):
     model = Post
+    template_name = 'blog/post_form.html'
     fields = ['title', 'content']
 
     def form_valid(self, form):
