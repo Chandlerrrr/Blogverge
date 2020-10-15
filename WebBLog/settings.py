@@ -30,7 +30,8 @@ STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = (os.environ.get('DEBUG_VALUE') == 'True')
+DEBUG = True
+    #(os.environ.get('DEBUG_VALUE') == 'True')
 
 ALLOWED_HOSTS = ['blogverge.herokuapp.com']
 
