@@ -93,3 +93,6 @@ a.article-title:hover {
   margin-top: 10px !important;
 }
 
+.comment {
+    margin: 20px 0px 20px 20px;
+}

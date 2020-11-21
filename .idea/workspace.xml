@@ -91,7 +91,7 @@
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="" />
+      <option name="SDK_HOME" value="C:\Users\Gautam\PycharmProjects\Edutech\venv\Scripts\python.exe" />
       <option name="WORKING_DIRECTORY" value="" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
@@ -145,6 +145,11 @@
       <workItem from="1602699999363" duration="572000" />
       <workItem from="1602758029306" duration="3848000" />
       <workItem from="1602762710644" duration="3057000" />
+      <workItem from="1604645053695" duration="1081000" />
+      <workItem from="1604655518430" duration="140000" />
+      <workItem from="1604845507486" duration="9003000" />
+      <workItem from="1604860557692" duration="477000" />
+      <workItem from="1605980857034" duration="2410000" />
     </task>
     <servers />
   </component>
