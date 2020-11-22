@@ -19,40 +19,40 @@
         </div>
     </article>
 <br>
-            <div class="media content-section">
-              <div class="card-body">
-                <!-- comments -->
-                <h3 class="font-weight-normal">{{ comments.count }} comments</h3>
+    <div class="media content-section">
+        <div class="card-body">
+                    <!-- comments -->
+            <h3 class="font-weight-normal">{{ comments.count }} comments</h3>
 
-                {% for comment in comments %}
+            {% for comment in comments %}
                 <div class="comments" style="padding: 10px;">
-                  <p class="font-weight-bold">
-                    {{ comment.name }}
-                    <span class=" text-muted font-weight-normal">
-                      {{ comment.created_on }}
-                    </span>
-                  </p>
-                  {{ comment.body | linebreaks }}
+                      <p class="font-weight-bold">
+                        {{ comment.name }}
+                        <span class=" text-muted font-weight-normal">
+                          {{ comment.created_on }}
+                        </span>
+                      </p>
+                      {{ comment.body | linebreaks }}
                 </div>
-                {% endfor %}
-              </div>
-            </div>
+            {% endfor %}
+        </div>
+    </div>
     <br>
-            <div class="media content-section">
-              <div class="card-body">
-                {% if new_comment %}
+    <div class="media content-section">
+        <div class="card-body">
+            {% if new_comment %}
                 <div class="alert alert-success" role="alert">
-                  Your comment is awaiting moderation
+                      Your comment is awaiting moderation
                 </div>
-                {% else %}
+            {% else %}
                 <p class="font-weight-normal"> Leave a comment : </p>
-                <form method="post" style="margin-top: 1.3em;">
+                <form method="post" style="margin-top: 1.1em;">
                      {{ comment_form | crispy }}
                      {% csrf_token %}
                       <button type="submit" class="btn btn-primary  btn-lg">Submit</button>
                 </form>
-                {% endif %}
-              </div>
-            </div>
+            {% endif %}
+        </div>
+    </div>
 
 {% endblock content %}
