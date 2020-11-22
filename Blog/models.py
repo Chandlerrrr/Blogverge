@@ -25,14 +25,12 @@ class Comment(models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
     active = models.BooleanField(default=False)
 # The related_name attribute allows us to name the attribute that we use for the relation from the related object
-    # back to this one
-#we have a Foreign key relation that establishes a many-to-one relationship with the Post model, since every comment will be made on a post and each post will have multiple comments.
+    # back to this one we have a Foreign key relation that establishes a many-to-one relationship with the Post
+    # model, since every comment will be made on a post and each post will have multiple comments.
 
     class Meta:
         ordering = ['created_on']
 
     def __str__(self):
         return 'Comment {} by {}'.format(self.body, self.name)
-
-
 
