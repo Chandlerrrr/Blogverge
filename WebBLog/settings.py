@@ -31,13 +31,11 @@ AWS_S3_SIGNATURE_VERSION = 's3v4'
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
-
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-#(os.environ.get('DEBUG_VALUE') == 'True')
+# (os.environ.get('DEBUG_VALUE') == 'True')
 
 ALLOWED_HOSTS = ['blogverge.herokuapp.com']
-
 
 INSTALLED_APPS = [
     'Blog.apps.BlogConfig',
@@ -82,7 +80,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'WebBLog.wsgi.application'
-
 
 DATABASES = {
     'default': {
@@ -142,4 +139,3 @@ EMAIL_HOST_USER = os.environ.get('EMAIL_USER')
 EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_PASS')
 
 django_heroku.settings(locals())
-
