@@ -17,6 +17,7 @@
             <h2 class="article-title">{{ object.title }}</h2>
             <p class="article-content">{{ object.content }}</p>
         </div>
+    </article>
 <br><br>
             <div class="media content-section">
               <div class="card-body">
@@ -44,7 +45,7 @@
                   Your comment is awaiting moderation
                 </div>
                 {% else %}
-                <h2>Leave a comment</h2>
+                <h3>Leave a comment</h3>
                 <form method="post" style="margin-top: 1.3em;">
                      {{ comment_form | crispy }}
                      {% csrf_token %}
@@ -53,5 +54,5 @@
                 {% endif %}
               </div>
             </div>
-    </article>
+
 {% endblock content %}
