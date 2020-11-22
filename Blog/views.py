@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Post
-from django.views.generic import ListView, CreateView, UpdateView, DeleteView
+from django.views.generic import ListView, CreateView, UpdateView, DeleteView, DetailView
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.auth.models import User
 from users.forms import CommentForm
@@ -55,11 +55,9 @@ def post_detail(request, slug):
                                                'comment_form': comment_form})
 
 
-'''
 class PostDetailView(DetailView):
     model = Post
     template_name = 'blog/post_detail.html'
-'''
 
 
 class PostCreateView(LoginRequiredMixin, CreateView):
