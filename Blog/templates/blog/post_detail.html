@@ -22,7 +22,7 @@
             <div class="media content-section">
               <div class="card-body">
                 <!-- comments -->
-                <h2>{{ comments.count }} comments</h2>
+                <h3 class="font-weight-normal">{{ comments.count }} comments</h3>
 
                 {% for comment in comments %}
                 <div class="comments" style="padding: 10px;">
@@ -37,7 +37,7 @@
                 {% endfor %}
               </div>
             </div>
-    <br><br>
+    <br>
             <div class="media content-section">
               <div class="card-body">
                 {% if new_comment %}
@@ -45,7 +45,7 @@
                   Your comment is awaiting moderation
                 </div>
                 {% else %}
-                <h3>Leave a comment</h3>
+                <p class="font-weight-normal"> Leave a comment : </p>
                 <form method="post" style="margin-top: 1.3em;">
                      {{ comment_form | crispy }}
                      {% csrf_token %}
