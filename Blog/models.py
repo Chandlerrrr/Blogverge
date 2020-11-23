@@ -13,7 +13,7 @@ class Post(models.Model):
     slug = models.SlugField(
         verbose_name="Slug",
         allow_unicode=True,
-        unique=True)
+        unique=True, default="")
 
     def save(self, *args, **kwargs):
         if not self.slug: self.slug = slugify(self.title)
