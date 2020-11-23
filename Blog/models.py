@@ -9,7 +9,6 @@ class Post(models.Model):
     content = models.TextField()
     date_posted = models.DateTimeField(default=timezone.now)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
-    slug = models.SlugField(max_length=200, default="", unique=True)
 
     class Meta:
         ordering = ["-date_posted"]
@@ -18,7 +17,7 @@ class Post(models.Model):
         return self.title
 
     def get_absolute_url(self):
-        return reverse("post-detail", kwargs={"slug": str(self.slug)})
+        return reverse("post-detail", kwargs={'pk': self.pk})
 
 
 class Comment(models.Model):

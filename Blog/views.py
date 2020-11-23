@@ -32,9 +32,9 @@ class UserPostListView(ListView):
         return Post.objects.filter(author=user).order_by('-date_posted')
 
 
-def post_detail(request, slug):
+def post_detail(request, id):
     template_name = 'blog/post_detail.html'
-    post = get_object_or_404(Post, slug=slug)
+    post = get_object_or_404(Post, pk=id)
     comments = post.comments.filter(active=True).order_by("-created_on")
     new_comment = None
     # Comment posted
