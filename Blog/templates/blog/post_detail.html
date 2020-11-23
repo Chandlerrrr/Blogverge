@@ -1,60 +1,62 @@
-{% extends "base.html" %} {% block content %}
+{% extends "base.html" %}
 {% load crispy_forms_tags %}
+{% block content %}
 
     <div class="media content-section">
-        <img class="rounded-circle article-img" src="{{ object.author.profile.image.url }}">
-        <div class="media-body">
-            <div class="article-metadata">
-                <a class="mr-2" href="{% url 'user-post' object.author.username %}">{{ object.author }}</a>
-                <small class="text-muted">{{ object.date_posted|date:"F d, Y" }}</small>
-                {% if object.author == user %}
-                    <div>
-                    <a class="btn btn-secondary btn-sn mt-1 mb-1" href="{% url 'post-update' object.id %}">Update</a>
-                    <a class="btn btn-danger btn-sn mt-1 mb-1" href="{% url 'post-delete' object.id %}">Delete</a>
+                <img class="rounded-circle article-img" src="{{ object.author.profile.image.url }}">
+                <div class="media-body">
+                    <div class="article-metadata">
+                        <a class="mr-2" href="{% url 'user-post' object.author.username %}">{{ object.author }}</a>
+                        <small class="text-muted">{{ object.date_posted|date:"F d, Y" }}</small>
+                        {% if object.author == user %}
+                            <div>
+                            <a class="btn btn-secondary btn-sn mt-1 mb-1" href="{% url 'post-update' object.id %}">Update</a>
+                            <a class="btn btn-danger btn-sn mt-1 mb-1" href="{% url 'post-delete' object.id %}">Delete</a>
+                            </div>
+                        {% endif %}
                     </div>
-                {% endif %}
-            </div>
-            <h2 class="article-title">{{ object.title }}</h2>
-            <p class="article-content">{{ object.content }}</p>
-        </div>
+                    <h2 class="article-title">{{ object.title }}</h2>
+                    <p class="article-content">{{ object.content }}</p>
+                </div>
 
-        <br>
-        <div class="media content-section">
-            <div class="card-body">
-                        <!-- comments -->
-                <h3 class="font-weight-normal">{{ comments.count }} comments</h3>
-                            <p>
-                            {% endwith %} {% for comment in comments %}
-                            </p>
+                <br>
+                <div class="media content-section">
+                    <div class="card-body">
+                                <!-- comments -->
+                        <h3 class="font-weight-normal">{{ comments.count }} comments</h3>
+                                    <p>
+                                     {% for comment in comments %}
+                                    </p>
 
-                    <div class="comments" style="padding: 10px;">
-                          <p class="font-weight-bold">
-                            {{ comment.name }}
-                            <span class=" text-muted font-weight-normal">
-                              {{ comment.created_on }}
-                            </span>
-                          </p>
-                          {{ comment.body | linebreaks }}
+                            <div class="comments" style="padding: 10px;">
+                                  <p class="font-weight-bold">
+                                    {{ comment.name }}
+                                    <span class=" text-muted font-weight-normal">
+                                      {{ comment.created_on }}
+                                    </span>
+                                  </p>
+                                  {{ comment.body | linebreaks }}
+                            </div>
+                        {% endfor %}
                     </div>
-                {% endfor %}
-            </div>
-        </div>
-        <br>
-        <div class="media content-section">
-            <div class="card-body">
-                    {% if new_comment %}
-                    <div class="alert alert-success" role="alert">
-                          Your comment is awaiting moderation
+                </div>
+                <br>
+                <div class="media content-section">
+                    <div class="card-body">
+                            {% if new_comment %}
+                            <div class="alert alert-success" role="alert">
+                                  Your comment is awaiting moderation
+                            </div>
+                            {% else %}
+                            <p class="font-weight-normal"> Leave a comment : </p>
+                            <form method="post" style="margin-top: 1.1em;">
+                                 {{ comment_form | crispy }}
+                                 {% csrf_token %}
+                                  <button type="submit" class="btn btn-primary  btn-lg">Submit</button>
+                            </form>
+                        {% endif %}
                     </div>
-                    {% else %}
-                    <p class="font-weight-normal"> Leave a comment : </p>
-                    <form method="post" style="margin-top: 1.1em;">
-                         {{ comment_form | crispy }}
-                         {% csrf_token %}
-                          <button type="submit" class="btn btn-primary  btn-lg">Submit</button>
-                    </form>
-                {% endif %}
+                </div>
             </div>
-        </div>
-    </div>
+
 {% endblock content %}
