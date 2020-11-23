@@ -33,6 +33,8 @@ class UserPostListView(ListView):
 
 
 class PostDetailView(DetailView):
+    model = Post
+
     def post_detail(self, request, pk):
         template_name = 'blog/post_detail.html'
         post = get_object_or_404(Post, pk)
