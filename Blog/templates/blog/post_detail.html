@@ -22,7 +22,7 @@
 
         <div class="media content-section">
         <div class="media-body">
-        <h2><p class="font-weight-bold"> Comments... </p></h2>
+        <h3><p class="font-weight-normal"> Comments... </p></h3>
         {% if not post.comments.all %}
             No Comments Yet... <a href="{% url 'post-comment' object.id %}">Add One</a>
         {% else %}
