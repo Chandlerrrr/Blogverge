@@ -18,6 +18,7 @@
                     <h2 class="article-title">{{ object.title }}</h2>
                     <p class="article-content">{{ object.content }}</p>
                 </div>
+    </div>
 
         <br><br>
         <hr>
@@ -42,7 +43,6 @@
             {% endfor %}
                 <a href="{% url 'post-comment' object.id %}">Add Comment</a>
         {% endif %}
-    </div>
 
 
 
