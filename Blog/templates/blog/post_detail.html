@@ -18,15 +18,17 @@
                     <h2 class="article-title">{{ object.title }}</h2>
                     <p class="article-content">{{ object.content }}</p>
                 </div>
-    </div>
+
 
                 <div class="media content-section">
                     <div class="card-body">
                                 <!-- comments -->
-                        <h3 class="font-weight-normal">{{ comments.count }} comments</h3>
-                                    <p>
-                                     {% for comment in comments %}
-                                    </p>
+                        {% with comments.count as total_comments %}
+                        <h3 class="font-weight-normal">{{ total_comments }} comments</h3>
+
+                            <p>
+                                {% endwith %} {% for comment in comments %}
+                            </p>
 
                             <div class="comments" style="padding: 10px;">
                                   <p class="font-weight-bold">
@@ -40,7 +42,6 @@
                         {% endfor %}
                     </div>
                 </div>
-                <br>
                 <div class="media content-section">
                     <div class="card-body">
                             {% if new_comment %}
@@ -58,5 +59,6 @@
                     </div>
                 </div>
 
+    </div>
 
 {% endblock content %}
