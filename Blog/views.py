@@ -50,7 +50,8 @@ class PostCommentView(CreateView):
         form.instance.post_id = self.kwargs['pk']
         return super().form_valid(form)
 
-    success_url = reverse_lazy('post-detail')
+    def get_success_url(self):
+        return reverse_lazy('post-detail', kwargs={'pk': self.kwargs['pk']})
 
 
 class PostCreateView(LoginRequiredMixin, CreateView):
