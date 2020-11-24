@@ -4,7 +4,8 @@ from django.views.generic import ListView, CreateView, UpdateView, DeleteView, D
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.auth.models import User
 from users.forms import CommentForm
-
+from django.utils.decorators import method_decorator
+from django.contrib.auth.decorators import login_required
 
 def home(request):
     context = {
@@ -33,40 +34,19 @@ class UserPostListView(ListView):
 
 
 class PostDetailView(DetailView):
-    def post_detail(self, request, pk):
-        model = Post
-        template_name = 'blog/post_detail.html'
-        post = get_object_or_404(Post, pk)
-        comments = post.comments.filter(active=True).order_by("-created_on")
-        new_comment = None
-        # Comment posted
-        if request.method == "POST":
-            comment_form = CommentForm(data=request.POST)
-            if comment_form.is_valid():
-                # Create Comment object but don't save to database yet
-                new_comment = comment_form.save(commit=False)
-                # Assign the current post to the comment
-                new_comment.post = post
-                # Save the comment to the database
-                new_comment.save()
-        else:
-            comment_form = CommentForm()
+    queryset = Post.objects.all()
+    model = Post
+    template_name = 'blog/post_detail.html'
 
-        return render(
-            request,
-            template_name,
-            {
-                "post": post,
-                "comments": comments,
-                "new_comment": new_comment,
-                "comment_form": comment_form,
-            },
-        )
-
-
-# class PostDetailView(DetailView):
-# model = Post
-# template_name = 'blog/post_detail.html'
+    @method_decorator(login_required)
+    def post(self, request, *args, **kwargs):
+        post = self.get_object()
+        form = CommentForm(request.POST or None)
+        if form.is_valid():
+            form.instance.author = request.user.profile
+            form.instance.post = post
+            form.save()
+        return self.get(request, *args, **kwargs)
 
 
 class PostCreateView(LoginRequiredMixin, CreateView):
