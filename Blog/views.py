@@ -33,10 +33,8 @@ class UserPostListView(ListView):
 
 
 class PostDetailView(DetailView):
-    model = Post
-    template_name = 'blog/post_detail.html'
-
     def post_detail(self, request, pk):
+        model = Post
         template_name = 'blog/post_detail.html'
         post = get_object_or_404(Post, pk)
         comments = post.comments.filter(active=True).order_by("-created_on")

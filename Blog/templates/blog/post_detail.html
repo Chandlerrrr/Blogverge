@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load crispy_forms_tags %}
+{% load crispy_forms_filters %}
 {% block content %}
 
     <div class="media content-section">
@@ -19,7 +19,7 @@
                     <p class="article-content">{{ object.content }}</p>
                 </div>
     </div>
-    
+
                 <div class="media content-section">
                     <div class="card-body">
                                 <!-- comments -->
