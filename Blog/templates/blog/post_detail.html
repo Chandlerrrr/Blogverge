@@ -18,47 +18,32 @@
                     <h2 class="article-title">{{ object.title }}</h2>
                     <p class="article-content">{{ object.content }}</p>
                 </div>
+
+        <br><br>
+        <hr>
+        <h2><p class="font-weight-bold"> Comments... </p></h2>
+        <br/>
+        {% if not post.comments.all %}
+            No Comments Yet... <a href="{% url 'post-comment' object.id %}">Add One</a>
+        {% else %}
+        <a href="{% url 'post-comment' object.id %}">Add Comment</a>
+        <br/>
+            {% for comment in post.comments.all  %}
+                <strong class="font-weight-light">
+                    {{ comment.name }} -
+                    {{ comment.created_on }}
+                </strong>
+                <br/>
+                <p class="font-weight-light">
+                {{ comment.body }}
+                </p>
+                <br/><br/>
+
+            {% endfor %}
+                <a href="{% url 'post-comment' object.id %}">Add Comment</a>
+        {% endif %}
     </div>
 
-
-                <div class="media content-section">
-                    <div class="card-body">
-                                <!-- comments -->
-                        {% with comments.count as total_comments %}
-                        <h3 class="font-weight-normal">{{ total_comments }} comments</h3>
-
-                            <p>
-                                {% endwith %} {% for comment in comments %}
-                            </p>
-
-                            <div class="comments" style="padding: 10px;">
-                                  <p class="font-weight-bold">
-                                    {{ comment.name }}
-                                    <span class=" text-muted font-weight-normal">
-                                      {{ comment.created_on }}
-                                    </span>
-                                  </p>
-                                  {{ comment.body | linebreaks }}
-                            </div>
-                        {% endfor %}
-                    </div>
-                </div>
-                <div class="media content-section">
-                    <div class="card-body">
-                            {% if new_comment %}
-                            <div class="alert alert-success" role="alert">
-                                  Your comment is awaiting moderation
-                            </div>
-                            {% else %}
-                            <p class="font-weight-normal"> Leave a comment : </p>
-                            <form method="post" style="margin-top: 1.1em;">
-                                 {{ comment_form | crispy }}
-                                 {% csrf_token %}
-                                  <button type="submit" class="btn btn-primary  btn-lg">Submit</button>
-                            </form>
-                        {% endif %}
-                    </div>
-                </div>
 
 
 {% endblock content %}

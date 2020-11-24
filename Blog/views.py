@@ -1,9 +1,10 @@
 from django.shortcuts import render, get_object_or_404
-from .models import Post
+from .models import Post, Comment
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView, DetailView
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.auth.models import User
 from users.forms import CommentForm
+from django.urls import reverse_lazy
 from django.utils.decorators import method_decorator
 from django.contrib.auth.decorators import login_required
 
@@ -39,15 +40,13 @@ class PostDetailView(DetailView):
     model = Post
     template_name = 'blog/post_detail.html'
 
-    @method_decorator(login_required)
-    def post(self, request, *args, **kwargs):
-        post = self.get_object()
-        form = CommentForm(request.POST or None)
-        if form.is_valid():
-            form.instance.author = request.user.profile
-            form.instance.post = post
-            form.save()
-        return self.get(request, *args, **kwargs)
+
+class PostCommentView(CreateView):
+    model = Comment
+    form_class = CommentForm
+    template_name = "blog/add_comment.html"
+
+    success_url = reverse_lazy('blog-home')
 
 
 class PostCreateView(LoginRequiredMixin, CreateView):
@@ -90,3 +89,7 @@ class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
 
 def about(request):
     return render(request, 'blog/about.html', {'title': 'About'})
+
+
+def contactus(request):
+    return render(request, 'blog/contactus.html')
