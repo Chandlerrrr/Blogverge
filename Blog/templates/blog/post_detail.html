@@ -22,6 +22,8 @@
 
         <br><br>
         <hr>
+        <div class="media content-section">
+        <div class="media-body">
         <h2><p class="font-weight-bold"> Comments... </p></h2>
         <br/>
         {% if not post.comments.all %}
@@ -43,7 +45,7 @@
             {% endfor %}
                 <a href="{% url 'post-comment' object.id %}">Add Comment</a>
         {% endif %}
-
-
+        </div>
+        </div>
 
 {% endblock content %}
