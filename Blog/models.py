@@ -4,11 +4,33 @@ from django.contrib.auth.models import User
 from django.urls import reverse
 
 
+class Category(models.Model):
+    name = models.CharField(max_length=200)
+
+    def __str__(self):
+        return self.name
+
+    def get_absolute_url(self):
+        return reverse('blog-home')
+
+
+# choices = ['Life', 'Work', 'Happiness', 'Exercise', 'God', 'Entertainment', 'Science', 'Computers', 'Family',
+# 'Social ' 'Media', 'Fashion', 'Food', 'Lifestyle', 'Photography', 'Nature', 'Travel', 'others']
+
+choices = Category.objects.all().values_list('name')
+choice_list = []
+
+for item in choices:
+    choice_list.append(item)
+
+
 class Post(models.Model):
-    title = models.CharField(max_length=100)
+    title = models.CharField(max_length=400)
+    tags = models.CharField(max_length=255, default='AddTags')
     content = models.TextField()
     date_posted = models.DateTimeField(default=timezone.now)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
+    category = models.CharField(max_length=255, default='AddCategory', choices=choice_list)
 
     class Meta:
         ordering = ["-date_posted"]
@@ -23,8 +45,7 @@ class Post(models.Model):
 class Comment(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='comments')
     name = models.CharField(max_length=100)
-    email = models.EmailField()
-    body = models.TextField()
+    Text = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
     active = models.BooleanField(default=False)
 
@@ -36,7 +57,7 @@ class Comment(models.Model):
         ordering = ['created_on']
 
     def __str__(self):
-        return 'Comment {} by {}'.format(self.body, self.name)
+        return 'Comment {} by {}'.format(self.Text, self.name)
 
     def get_absolute_url(self):
         return reverse("post-detail", kwargs={'pk': self.post.id})

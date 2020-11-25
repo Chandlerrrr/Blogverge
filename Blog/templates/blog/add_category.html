@@ -6,15 +6,21 @@
             {% csrf_token %}
             <fieldset class="form-group">
                 <legend class="border-bottom mb-4">
-                    <h2 class="font-weight-bold"> Publish your passions, your way </h2>
-                    <p class="text-muted">Create a unique and beautiful story.</p>
+                    <h2 class="font-weight-bold"> Add a unique category </h2>
                 </legend>
                 {{ form|crispy }}
             </fieldset>
             <div class="form-group">
-                <button class="btn btn-outline" type="submit">Post</button>
+                <button class="btn btn-outline" type="submit">Submit</button>
             </div>
         </form>
+        <br>
+        <div class="media-body">
+            <h4 class="font-weight-bold"> Already Registered Categories that you can Choose from:  </h4>
+            <br>
+            <p class="font-weight-normal"><small class="text-muted">{{ object.category }}</small></p>
+
+        </div>
     </div>
 {% endblock content %}
 
