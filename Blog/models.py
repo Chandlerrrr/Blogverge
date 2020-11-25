@@ -14,23 +14,32 @@ class Category(models.Model):
         return reverse('blog-home')
 
 
-# choices = ['Life', 'Work', 'Happiness', 'Exercise', 'God', 'Entertainment', 'Science', 'Computers', 'Family',
-# 'Social ' 'Media', 'Fashion', 'Food', 'Lifestyle', 'Photography', 'Nature', 'Travel', 'others']
-
-choices = Category.objects.all().values_list('name')
-choice_list = []
-
-for item in choices:
-    choice_list.append(item)
-
-
 class Post(models.Model):
+    choices = (
+        ("Adventure", "Adventure"),
+        ("Blog", "Blog"),
+        ("Photography", "Photography"),
+        ("Culture", "Culture"),
+        ("Tv", "Tv"),
+        ("Fashion", "Fashion"),
+        ("Lifestyle", "Lifestyle"),
+        ("Life", "Life"),
+        ("God", "God"),
+        ("Movies", "Movies"),
+        ("Culture", "Culture"),
+        ("Weather", "Weather"),
+        ("Art", "Art"),
+        ("Space", "Space"),
+        ("Nature", "Nature"),
+        ("Computer", "Computer"),
+        ("SocialMedia", "SocialMedia"),
+    )
     title = models.CharField(max_length=400)
     tags = models.CharField(max_length=255, default='AddTags')
     content = models.TextField()
     date_posted = models.DateTimeField(default=timezone.now)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
-    category = models.CharField(max_length=255, default='AddCategory', choices=choice_list)
+    category = models.CharField(max_length=255, default='AddCategory', choices=choices)
 
     class Meta:
         ordering = ["-date_posted"]
