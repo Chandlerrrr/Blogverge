@@ -22,13 +22,13 @@
 
         <div class="media content-section">
         <div class="media-body">
-        <h3><p class="font-weight-normal"> Comments... </p></h3>
+        <h4><p class="font-weight-bold"> Comments... </p></h4>
         {% if not post.comments.all %}
             No Comments Yet... <a href="{% url 'post-comment' object.id %}">Add One</a>
         {% else %}
         <br/>
             {% for comment in post.comments.all  %}
-                <strong class="font-weight-light">
+                <strong class="font-weight-normal">
                     {{ comment.name }} -
                     {{ comment.created_on }}
                 </strong>
