@@ -50,19 +50,13 @@
                     {% if user.is_authenticated %}
                         <form action="{% url 'like_post' post.pk %}" method="post">
                             {% csrf_token %}
-                            {% if post_is_liked %}
                                 <p class="text-muted">Tell us what do you think?. <3 </p>
-                                <button type="submit"  name="post_id"  value="{{ post.id }}"><i class="fa fa-thumbs-down" aria-hidden="true"></i><p class="font-weight-light"></p></button> - <small class="text-muted">{{ post.total_dislike }} unlikes </small>
-                            {% else %}
-                                <button type="submit"  name="post_id"  value="{{ post.id }}"><i class="fa fa-thumbs-up" aria-hidden="true"></i><p class="font-weight-light"></p></button> - <small class="text-muted">{{ post.total_likes }} likes </small>
-                            {% endif %}
+                                <button type="submit"  name="post_id"  value="{{ post.id }}"><i class="fa fa-thumbs-down" aria-hidden="true"></i><p class="font-weight-light"></p></button> - <small class="text-muted">{{ post.total_dislike }} Unlike {{ post.total_dislike|pluralize }} </small> &nbsp; &nbsp; &nbsp; &nbsp; <button type="submit"  name="post_id"  value="{{ post.id }}"><i class="fa fa-thumbs-up" aria-hidden="true"></i><p class="font-weight-light"></p></button> - <small class="text-muted">{{ post.total_likes }} Like {{ post.total_likes|pluralize }} </small>
                         </form>
                     {% else %}
                             <small class="font-weight-normal"><a href="{% url 'login' %}">Login to like</a></small>
                     {% endif %}
-                    <strong class="text-secondary">{{ post.total_likes }} Like{{ post.total_likes|pluralize }}</strong>
                 <br>
-
                 <a href="{% url 'blog-home' %}" class="btn btn-info" role="button">Back</a>
                 <br>
                 <hr>
