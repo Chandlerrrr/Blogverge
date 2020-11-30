@@ -41,21 +41,20 @@
             {% endfor %}
                 <a href="{% url 'post-comment' object.id %}">Add Comment</a>
         {% endif %}
+
+            <br>
+            <a href="{% url 'blog-home' %}" class="btn btn-info" role="button">Back</a>
+            <br>
+            <hr>
+
+            <form action="{% url 'like_post' post.pk %}"
+                  method="post">
+                {% csrf_token %}
+                <button type="submit"  name="post_id"  value="{{ post.id }}"><i class="fa fa-heart" aria-hidden="true"></i><p class="font-weight-light">Like</p></button> -  <small class="text-muted">{{ post.total_likes }} likes</small>
+
+            </form>
+
         </div>
         </div>
-
-    <br>
-    <a href="{% url 'blog-home' %}" class="btn btn-info" role="button">Back</a>
-    <br>
-    <hr>
-
-    <form action="{% url 'like_post' post.pk %}"
-          method="post">
-        {% csrf_token %}
-        <button type="submit"  name="post_id"  value="{{ post.id }}"><i class="fa fa-heart" aria-hidden="true"></i><p class="font-weight-light">Like</p></button> -  <small class="text-muted">{{ post.total_likes }} likes</small>
-
-    </form>
-
-
 
 {% endblock content %}
