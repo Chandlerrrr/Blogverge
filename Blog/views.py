@@ -66,7 +66,7 @@ class PostDetailView(DetailView):
     template_name = 'blog/post_detail.html'
 
     def get_context_data(self, *args, **kwargs ):
-        context = super(PostDetailView, self).get_context_data()
+        context = super().get_context_data(**kwargs)
         stuff = get_object_or_404(Post, id=self.kwargs['pk'])
         total_likes = stuff.total_likes()
 
