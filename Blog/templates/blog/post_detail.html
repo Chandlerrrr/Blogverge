@@ -25,40 +25,45 @@
         <div class="media content-section">
         <div class="media-body">
 
-        <br>
-        <h4><p class="font-weight-bold"> Comments... </p></h4>
-        {% if not post.comments.all %}
-            No Comments Yet... <a href="{% url 'post-comment' object.id %}">Add One</a>
-        {% else %}
-        <br/>
-            {% for comment in post.comments.all  %}
-                <strong class="font-weight-normal">
-                    {{ comment.name }} -
-                    {{ comment.created_on }}
-                </strong>
-                <br/>
-                <p class="font-weight-light">
-                {{ comment.Text }}
-                </p>
+            <br>
+            <h4><p class="font-weight-bold"> Comments... </p></h4>
+            {% if not post.comments.all %}
+                No Comments Yet... <a href="{% url 'post-comment' object.id %}">Add One</a>
+            {% else %}
+            <br/>
+                {% for comment in post.comments.all  %}
+                    <strong class="font-weight-normal">
+                        {{ comment.name }} -
+                        {{ comment.created_on }}
+                    </strong>
+                    <br/>
+                    <p class="font-weight-light">
+                    {{ comment.Text }}
+                    </p>
+                    <hr>
+
+                {% endfor %}
+                    <a href="{% url 'post-comment' object.id %}">Add Comment</a>
+            {% endif %}
+
+                <br>
+                <form action="{% url 'like_post' post.pk %}" method="post">
+                    {% csrf_token %}
+                    {% if user.is_authenticated %}
+                    <p class="text-muted">like this post? give it a like. <3 </p>
+
+                    <button type="submit"  name="post_id"  value="{{ post.id }}"><i class="fa fa-thumbs-up" aria-hidden="true"></i><p class="font-weight-light"></p></button> - <small class="text-muted">{{ post.total_likes }} likes </small> &nbsp; &nbsp; <button type="submit"  name="post_id"  value="{{ post.id }}"><i class="fa fa-thumbs-down" aria-hidden="true"></i><p class="font-weight-light"></p></button> - <small class="text-muted">{{ post.total_likes }} unlikes</small>
+                    {% else %}
+                    <small class="font-weight-normal" href="{% url 'login' %}">Login to like</small> &nbsp;
+                    {% endif %}
+                            - {{ post.total_likes }} likes
+                </form>
+
+                <br>
+
+                <a href="{% url 'blog-home' %}" class="btn btn-info" role="button">Back</a>
+                <br>
                 <hr>
-
-            {% endfor %}
-                <a href="{% url 'post-comment' object.id %}">Add Comment</a>
-        {% endif %}
-
-            <br>
-            <form action="{% url 'like_post' post.pk %}" method="post">
-                {% csrf_token %}
-                <p class="text-muted">like this post? give it a like. <3 </p>
-                <button type="submit"  name="post_id"  value="{{ post.id }}"><i class="fa fa-thumbs-up" aria-hidden="true"></i><p class="font-weight-light"></p></button> - <small class="text-muted">{{ post.total_likes }} like</small>
-
-            </form>
-
-            <br>
-
-            <a href="{% url 'blog-home' %}" class="btn btn-info" role="button">Back</a>
-            <br>
-            <hr>
 
         </div>
         </div>
