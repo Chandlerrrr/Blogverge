@@ -50,7 +50,7 @@
             <form action="{% url 'like_post' post.pk %}"
                   method="post">
                 {% csrf_token %}
-                <button type="submit"  name="post_id"  value="{{ post.id }}"><i class="fa fa-heart" aria-hidden="true"></i><p class="font-weight-light">Like</p></button> -  <small class="text-muted">{{ post.total_likes }} likes</small>
+                <button type="submit"  name="post_id"  value="{{ post.id }}"><i class="fa fa-heart" aria-hidden="true"></i><p class="font-weight-light"></p></button> -  <small class="text-muted">{{ post.total_likes }} likes</small>
 
             </form>
 
