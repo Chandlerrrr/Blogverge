@@ -40,6 +40,10 @@ class Post(models.Model):
     date_posted = models.DateTimeField(default=timezone.localtime())
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     category = models.CharField(max_length=255, default='AddCategory', choices=choices)
+    likes = models.ManyToManyField(User, related_name="blog_posts")
+
+    def total_likes(self):
+        return self.likes.count()
 
     class Meta:
         ordering = ["-date_posted"]
