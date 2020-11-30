@@ -29,8 +29,14 @@ def LikeView(request, pk):
 
 
 def DisLikeView(request,pk):
-    post = get_object_or_404(Post, id=request.POST.get('post_id'))
-    post.dislikes.add(request.user)
+    post = get_object_or_404(Post, id=request.POST.get('post_ids'))
+    liked = False
+    if post.dislikes.filter(id=request.user.id).exists():
+        post.dislikes.remove(request.user)
+        liked = False
+    else:
+        post.dislikes.add(request.user)
+        liked = True
     return HttpResponseRedirect(reverse('post-detail', args=[str(pk)]))
 
 
