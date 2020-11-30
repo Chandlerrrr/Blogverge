@@ -22,15 +22,15 @@
                 <br>
                 </div>
                 <br>
-                    <br>
-                    <form action="{% url 'like_post' post.pk %}" method="post">
-                        {% csrf_token %}
-                        <button type="submit"  name="post_id"  value="{{ post.id }}"><i class="fa fa-heart" aria-hidden="true"></i><p class="font-weight-light"></p></button> - <small class="text-muted">{{ post.total_likes }} likes</small>
-
-                    </form>
     </div>
         <div class="media content-section">
         <div class="media-body">
+            <br>
+            <form action="{% url 'like_post' post.pk %}" method="post">
+                {% csrf_token %}
+                <button type="submit"  name="post_id"  value="{{ post.id }}"><i class="fa fa-heart" aria-hidden="true"></i><p class="font-weight-light"></p></button> - <small class="text-muted">{{ post.total_likes }} likes</small>
+
+            </form>
         <h4><p class="font-weight-bold"> Comments... </p></h4>
         {% if not post.comments.all %}
             No Comments Yet... <a href="{% url 'post-comment' object.id %}">Add One</a>
