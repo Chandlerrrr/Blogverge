@@ -49,8 +49,8 @@
             <br>
             <form action="{% url 'like_post' post.pk %}" method="post">
                 {% csrf_token %}
-                <p class="text-muted">like this post? give it a heart. <3 </p>
-                <button type="submit"  name="post_id"  value="{{ post.id }}"><i class="fa fa-heart" aria-hidden="true"></i><p class="font-weight-light"></p></button> - <small class="text-muted">{{ post.total_likes }} likes</small>
+                <p class="text-muted">like this post? give it a like. <3 </p>
+                <button type="submit"  name="post_id"  value="{{ post.id }}"><i class="fa fa-thumbs-up" aria-hidden="true"></i><p class="font-weight-light"></p></button> - <small class="text-muted">{{ post.total_likes }} like</small>
 
             </form>
 
