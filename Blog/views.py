@@ -35,9 +35,10 @@ def DisLikeView(request, pk):
         post.dislikes.remove(request.user)
         liked = False
     else:
-        post.dislikes.add(request.user)
+        post.dislikes.add(request.user.id)
+        post.save()
         liked = True
-    return HttpResponseRedirect(reverse('post-detail', args=[str(pk)]))
+    return HttpResponseRedirect(post.get_absolute_url())
 
 
 class PostListView(ListView):
