@@ -41,12 +41,13 @@ class Post(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     category = models.CharField(max_length=255, default='AddCategory', choices=choices)
     likes = models.ManyToManyField(User, related_name="blog_posts")
+    dislikes = models.ManyToManyField(User, related_name="blog_posty")
 
     def total_likes(self):
         return self.likes.count()
 
     def total_dislike(self):
-        return self.likes.count()
+        return self.dislikes.count()
 
     class Meta:
         ordering = ["-date_posted"]

@@ -1,6 +1,6 @@
 from django.urls import path
 from .views import PostListView, PostCreateView, PostUpdateView, PostDeleteView, UserPostListView, PostDetailView, \
-    PostCommentView, AddCategoryView, LikeView
+    PostCommentView, AddCategoryView, LikeView, DisLikeView
 from . import views
 
 urlpatterns = [
@@ -15,4 +15,5 @@ urlpatterns = [
     path('contactus/', views.contactus, name="contactus"),
     path('post/<int:pk>/comment', PostCommentView.as_view(), name="post-comment"),
     path('like/<int:pk>', LikeView, name='like_post'),
+    path('dislike/<int:pk>', DisLikeView, name='dislike_post'),
 ]

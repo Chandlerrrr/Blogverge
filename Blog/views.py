@@ -28,6 +28,12 @@ def LikeView(request, pk):
     return HttpResponseRedirect(reverse('post-detail', args=[str(pk)]))
 
 
+def DisLikeView(request,pk):
+    post = get_object_or_404(Post, id=request.POST.get('post_id'))
+    post.dislikes.add(request.user)
+    return HttpResponseRedirect(reverse('post-detail', args=[str(pk)]))
+
+
 class PostListView(ListView):
     model = Post
     template_name = 'blog/home.html'
