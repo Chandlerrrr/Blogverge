@@ -46,15 +46,13 @@
                 <a href="{% url 'post-comment' object.id %}">Add Comment</a>
         {% endif %}
 
-            <br><br>
+            <br>
             <form action="{% url 'like_post' post.pk %}" method="post">
                 {% csrf_token %}
                 <p class="text-muted">like this post? give it a heart. <3 </p>
                 <button type="submit"  name="post_id"  value="{{ post.id }}"><i class="fa fa-heart" aria-hidden="true"></i><p class="font-weight-light"></p></button> - <small class="text-muted">{{ post.total_likes }} likes</small>
 
             </form>
-
-            <br><br>
             <a href="{% url 'blog-home' %}" class="btn btn-info" role="button">Back</a>
             <br>
             <hr>
