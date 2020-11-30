@@ -51,18 +51,18 @@
                     {% csrf_token %}
                     {% if user.is_authenticated %}
                             <button type="submit"  name="post_id"  value="{{ post.id }}"><i class="fa fa-thumbs-down" aria-hidden="true"></i><p class="font-weight-light"></p></button> - <small class="text-muted">{{ post.total_dislike }} unlikes </small>
-                    {% else %}
                             <p class="text-muted">like this post? give it a like. <3 </p>
                             <button type="submit"  name="post_id"  value="{{ post.id }}"><i class="fa fa-thumbs-up" aria-hidden="true"></i><p class="font-weight-light"></p></button> - <small class="text-muted">{{ post.total_likes }} likes </small> &nbsp; &nbsp;
+                    {% else %}
+                        <br>
+                            <small class="font-weight-normal"><a href="{% url 'login' %}">Login to like</a></small> &nbsp;
                     {% endif %}
-                        <small class="font-weight-normal"><a href="{% url 'login' %}">Login to like</a></small> &nbsp;
                 </form>
                 <br>
 
                 <a href="{% url 'blog-home' %}" class="btn btn-info" role="button">Back</a>
                 <br>
                 <hr>
-
         </div>
         </div>
 
