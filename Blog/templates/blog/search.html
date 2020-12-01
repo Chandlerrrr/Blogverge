@@ -2,7 +2,6 @@
 {% block title %} Search results {% endblock title %}
 {% block content %}
     <h3 class="font-weight-bold"> Search results </h3>
-    <br>
     {% if posts|length < 1 %}
         <article class="media content-section">
         <p class="font-weight-normal">No search results.</p>
@@ -24,7 +23,7 @@
                       <small class="text-muted">#{{ post.tags }}</small>
                     </div>
                     <h2><a class="article-title" href="{% url  'post-detail' post.id %}">{{ post.title }}</a></h2>
-                    <p class="article-content">{{ post.content }}</p>
+                    <p class="article-content">{{ post.content|safe }}</p>
                   </div>
         </article>
     {% endfor %}
