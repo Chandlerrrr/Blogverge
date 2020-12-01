@@ -1,16 +1,17 @@
 {% extends "base.html" %}
 {% block title %} Search results {% endblock title %}
 {% block content %}
-    <h3 class="font-weight-bold"> Search results </h3>
+    <h3 class="font-weight-bold"> Search results : </h3>
     {% if posts|length < 1 %}
         <article class="media content-section">
-        <p class="font-weight-normal">No search results.</p>
-        <p class="font-weight-normal">Your search query : <b>{{ query }}</b> - did not match any document.</p>
-        <p class="font-weight-normal">Suggestions :</p>
-        <p class="font-weight-light">Make sure that all words are spelled correctly</p>
-        <p class="font-weight-light">Try different Keywords</p>
-        <p class="font-weight-light">Try more general keywords</p>
-        <p class="font-weight-light">Try fewer keywords</p>
+        <p class="font-weight-normal">No search results.</p><br>
+        <p class="font-weight-normal">Your search query : <b>{{ query }}</b> - did not match any document.</p><br>
+            <hr>
+        <p class="font-weight-normal">Suggestions :</p><br>
+        <p class="font-weight-light">Make sure that all words are spelled correctly</p><br>
+        <p class="font-weight-light">Try different Keywords</p><br>
+        <p class="font-weight-light">Try more general keywords</p><br>
+        <p class="font-weight-light">Try fewer keywords</p><br>
         </article>
     {% endif %}
     {% for post in posts %}
