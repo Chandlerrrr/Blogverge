@@ -5,7 +5,8 @@ from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.auth.models import User
 from users.forms import CommentForm
 from django.urls import reverse_lazy, reverse
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse
+from Blog.models import Post
 
 
 def home(request):
@@ -122,3 +123,10 @@ def about(request):
 
 def contactus(request):
     return render(request, 'blog/contactus.html')
+
+
+def search(request):
+    query = request.GET('query')
+    posts = Post.objects.filter(title__icontains=query, content__icontains=query)
+    params = {'posts': posts}
+    return render(request, 'blog/search.html', params)
