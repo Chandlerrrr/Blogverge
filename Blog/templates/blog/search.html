@@ -4,13 +4,15 @@
     <h3 class="font-weight-bold"> Search results </h3>
     <br>
     {% if posts|length < 1 %}
+        <article class="media content-section">
         <p class="font-weight-normal">No search results.</p>
         <p class="font-weight-normal">Your search query : <b>{{ query }}</b> - did not match any document.</p>
-        <p class="font-weight-normal" style="color: white">Suggestions :</p>
-        <p class="font-weight-light" style="color: white">Make sure that all words are spelled correctly</p>
-        <p class="font-weight-light" style="color: white">Try different Keywords</p>
-        <p class="font-weight-light" style="color: white">Try more general keywords</p>
-        <p class="font-weight-light" style="color: white">Try fewer keywords</p>
+        <p class="font-weight-normal">Suggestions :</p>
+        <p class="font-weight-light">Make sure that all words are spelled correctly</p>
+        <p class="font-weight-light">Try different Keywords</p>
+        <p class="font-weight-light">Try more general keywords</p>
+        <p class="font-weight-light">Try fewer keywords</p>
+        </article>
     {% endif %}
     {% for post in posts %}
         <article class="media content-section">

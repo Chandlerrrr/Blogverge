@@ -2,6 +2,7 @@ from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
 from django.urls import reverse
+from ckeditor.fields import RichTextField
 
 
 class Category(models.Model):
@@ -36,7 +37,7 @@ class Post(models.Model):
     )
     title = models.CharField(max_length=400)
     tags = models.CharField(max_length=255, default='AddTags')
-    content = models.TextField()
+    content = RichTextField(blank=True, null=True)
     date_posted = models.DateTimeField(default=timezone.localtime())
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     category = models.CharField(max_length=255, default='AddCategory', choices=choices)
