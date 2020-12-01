@@ -38,7 +38,7 @@ class Post(models.Model):
     title = models.CharField(max_length=400)
     tags = models.CharField(max_length=255, default='AddTags')
     content = RichTextField(blank=True, null=True)
-    header_image = models.ImageField(null=True, blank=True, upload_to='upload_pics', default='noimage.png')
+    header_image = models.ImageField(null=True, blank=True, upload_to='upload_pics')
     date_posted = models.DateField(auto_now_add=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     category = models.CharField(max_length=255, default='AddCategory', choices=choices)
