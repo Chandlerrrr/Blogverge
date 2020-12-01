@@ -7,7 +7,7 @@
                 <div class="media-body">
                     <div class="article-metadata">
                         <a class="mr-2" href="{% url 'user-post' object.author.username %}">{{ object.author }}</a>
-                        <small class="text-muted">{{ object.date_posted|date:"F d, Y" }}</small> &nbsp; <p class="font-weight-normal"> Category : <small class="text-muted">{{ object.category }}</small></p> &nbsp; &nbsp; &nbsp; <p class="font-weight-normal">Tags :  <small class="text-muted">{{ object.tags }} </small>
+                        <small class="text-muted">{{ object.date_posted|date:"F d, Y" }}</small> &nbsp; <p class="font-weight-normal"> Category : <small class="text-muted">{{ object.category }} </small> &nbsp; Tags :  <small class="text-muted">{{ object.tags }}</small></p>
                         {% if object.author == user %}
                             <div>
                             <a class="btn btn-secondary btn-sn mt-1 mb-1" href="{% url 'post-update' object.id %}">Update</a>
@@ -15,7 +15,7 @@
                             </div>
                         {% endif %}
                     </div>
-                    <h2 class="article-title" style="align-items: center">{{ object.title }}</h2>
+                    <h2 class="article-title" style="align-items: center !important;">{{ object.title }}</h2>
                     <img class="img-fluid" src="{{ object.header_image.url }}" style="align-items: center" alt="{{ object.header_image.name }}">
                     <p class="article-content">{{ object.content|safe }}</p>
                 <br>
