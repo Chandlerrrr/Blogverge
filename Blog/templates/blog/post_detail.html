@@ -17,7 +17,7 @@
                     </div>
                     <h2 class="article-title">{{ object.title }}</h2>
                     <p class="font-weight-normal">Tags :  <small class="text-muted">{{ object.tags }} </small>
-                    <img src="{{ object.header_image.url }}" style="align-items: center" alt="{{ object.header_image.name }}">
+                    <img class="img-fluid" src="{{ object.header_image.url }}" style="align-items: center" alt="{{ object.header_image.name }}">
                     <p class="article-content">{{ object.content|safe }}</p>
                 <br>
                 </div>
