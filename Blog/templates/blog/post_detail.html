@@ -17,7 +17,8 @@
                     </div>
                     <h2 class="article-title">{{ object.title }}</h2>
                     <p class="font-weight-normal">Tags :  <small class="text-muted">{{ object.tags }} </small>
-                    <p class="article-content">{{ object.content }}</p>
+                    <p class="article-content">{{ object.content| truncatechars:600 }}</p>
+                    <p class="font-weight-normal" href="/post/{{ post.pk }}">Continue Reading...</p>
                 <br>
                 </div>
                 <br>
