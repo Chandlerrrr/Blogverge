@@ -127,6 +127,6 @@ def contactus(request):
 
 def search(request):
     query = request.GET['query']
-    posts = Post.objects.filter(title__icontains=query, content__icontains=query)
+    posts = Post.objects.filter(title__icontains=query)
     params = {'posts': posts}
     return render(request, 'blog/search.html', params)
