@@ -95,15 +95,10 @@ a.article-title:hover {
 
 /* Styles for wrapping the search box */
 
-.main {
-    width: 50%;
-    margin: 50px auto;
-}
-
 /* Bootstrap 4 text input with search icon */
 
 .has-search .form-control {
-    padding-left: 2.275rem;
+    padding-left: 15.275rem;
 }
 
 
