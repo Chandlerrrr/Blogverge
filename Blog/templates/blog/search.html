@@ -2,7 +2,16 @@
 {% block title %} Search results {% endblock title %}
 {% block content %}
     <h2 class="font-weight-bold"> Search results </h2>
-    <br> <hr>
+    <br>
+    {% if posts|length < 1 %}
+        <p class="font-weight-normal">No search results.</p>
+        <p class="font-weight-normal">Your search query : <b>{{ query }}</b> - did not match any document.</p> <br>
+        <p class="font-weight-normal">Suggestions :</p> <br>
+        <p class="font-weight-light">Make sure that all words are spelled correctly</p>
+        <p class="font-weight-light">Try different Keywords</p>
+        <p class="font-weight-light">Try more general keywords</p>
+        <p class="font-weight-light">Try fewer keywords</p>
+    {% endif %}
     {% for post in posts %}
         <article class="media content-section">
             <img class="rounded-circle article-img" src="{{ post.author.profile.image.url }}">

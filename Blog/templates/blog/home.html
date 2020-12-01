@@ -10,8 +10,8 @@
                       <small class="text-muted">#{{ post.tags }}</small>
                     </div>
                     <h2><a class="article-title" href="{% url  'post-detail' post.id %}">{{ post.title }}</a></h2>
-                      <p class="article-content">{{ post.content| truncatechars:600 }}</p>
-                    <p class="font-weight-normal" href="/post/{{ post.pk }}">Continue Reading...</p>
+                      <p class="article-content">{{ post.content| truncatechars:500 }}</p>
+                      <p class="font-weight-normal"> <a href="/post/{{ post.pk }}">Continue Reading...</a></p>
                   </div>
         </article>
     {% endfor %}

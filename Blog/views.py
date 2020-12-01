@@ -7,6 +7,7 @@ from users.forms import CommentForm
 from django.urls import reverse_lazy, reverse
 from django.http import HttpResponseRedirect, HttpResponse
 from Blog.models import Post
+from django.contrib import messages
 
 
 def home(request):
@@ -127,6 +128,13 @@ def contactus(request):
 
 def search(request):
     query = request.GET['query']
-    posts = Post.objects.filter(title__icontains=query)
-    params = {'posts': posts}
+    if len(query) > 80:
+        posts = Post.objects.none()
+    else:
+        poststitle = Post.objects.filter(title__icontains=query)
+        postcontent = Post.objects.filter(content__icontains=query)
+        posts = poststitle.union(postcontent)
+    if posts.count() == 0:
+        messages.warning(request, "No search result found please refine your query")
+    params = {'posts': posts, 'query': query}
     return render(request, 'blog/search.html', params)
