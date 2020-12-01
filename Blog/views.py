@@ -77,7 +77,7 @@ class PostCommentView(CreateView):
 class PostCreateView(LoginRequiredMixin, CreateView):
     model = Post
     template_name = 'blog/post_form.html'
-    fields = ['title', 'tags', 'category', 'content']
+    fields = ['title', 'tags', 'category', 'header_image', 'content']
 
     def form_valid(self, form):
         form.instance.author = self.request.user
