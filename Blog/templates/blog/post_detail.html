@@ -16,11 +16,9 @@
                         {% endif %}
                     </div>
                     <h3 class="article-title">{{ object.title }}</h3>
-                    <div class="thumbnail">
-                        <img class="img-fluid"  src="{{ object.header_image.url }}" style="align-items: center">
-                        <div class="caption">
-                             <p class="font-weight-normal">{{ object.header_image.name }}</p>
-                        </div>
+                <br>
+                    <div class="img-fluid">
+                        <img class="img-thumbnail"  src="{{ object.header_image.url }}" style="align-items: center">
                     </div>
                     <p class="article-content">{{ object.content|safe }}</p>
                 <br>
