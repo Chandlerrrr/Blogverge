@@ -18,22 +18,26 @@ class Category(models.Model):
 class Post(models.Model):
     choices = (
         ("Adventure", "Adventure"),
-        ("Blog", "Blog"),
-        ("Photography", "Photography"),
         ("Culture", "Culture"),
-        ("Tv", "Tv"),
+        ("Entertainment & Pop Culture", "Entertainment & Pop Culture"),
         ("Fashion", "Fashion"),
+        ("Geography & Travel", "Geography & Travel"),
+        ("Health & Medicine", "Health & Medicine"),
+        ("Literature", "Literature"),
         ("Lifestyle", "Lifestyle"),
-        ("Life", "Life"),
-        ("God", "God"),
         ("Movies", "Movies"),
-        ("Culture", "Culture"),
-        ("Weather", "Weather"),
-        ("Art", "Art"),
-        ("Space", "Space"),
         ("Nature", "Nature"),
-        ("Computer", "Computer"),
-        ("SocialMedia", "SocialMedia"),
+        ("Photography", "Photography"),
+        ("Philosophy & Religion", "Philosophy & Religion"),
+        ("Politics, Law & Government", "Politics, Law & Government"),
+        ("Science", "Science"),
+        ("Social Issues", "Social Issues"),
+        ("Space", "Space"),
+        ("Sports & Recreation", "Sports & Recreation"),
+        ("Technology", "Technology"),
+        ("Visual Arts", "Visual Arts"),
+        ("World History", "World History"),
+
     )
     title = models.CharField(max_length=400)
     tags = models.CharField(max_length=255, default='AddTags')

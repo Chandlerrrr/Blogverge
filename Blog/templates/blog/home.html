@@ -9,7 +9,7 @@
                       <small class="text-muted">{{ post.date_posted|date:"F d, Y" }}</small>
                       <small class="text-muted">#{{ post.tags }}</small>
                     </div>
-                    <h2><a class="article-title" href="{% url  'post-detail' post.id %}">{{ post.title }}</a></h2>
+                    <h3><a class="article-title" href="{% url  'post-detail' post.id %}">{{ post.title }}</a></h3>
                       <p class="article-content">{{ post.content| truncatechars:350|safe }}</p>
                       <p class="font-weight-normal"> <a href="/post/{{ post.pk }}">Continue Reading...</a></p>
                   </div>
