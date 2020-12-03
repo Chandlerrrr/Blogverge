@@ -32,18 +32,33 @@
             {% if not post.comments.all %}
                 No Comments Yet... <a href="{% url 'post-comment' object.id %}">Add One</a>
             {% else %}
-                {% for comment in post.comments.all  %}
+                {% for comment in post.comments %}
                     <strong class="font-weight-normal">
                         {{ comment.name }} -
                         {{ comment.created_on }}
                     </strong>
                     <br/>
                     <p class="font-weight-light">
-                    {{ comment.Text }}
+                        {{ comment.Text }}
                     </p>
-                    <hr>
+                    {% for reply in comment.replies.all %}
+                        Reply:  {{ reply.comment }}
+
+                    {% endfor %}
                 {% endfor %}
-                    <a href="{% url 'post-comment' object.id %}">Add Comment</a>
+
+                    <button class="btn btn-light" type="button"  data-toggle="collapse" data-target="#collapseExample{{post.id}}" aria-expanded="false" aria-controls="collapseExample">
+                        <span class="icon"><i class="fas fa-fw fa-file"></i></span>Add Comment
+                    </button>
+
+                    <div class="collapse" id="collapseExample{{post.id}}">
+
+                        <form action="{% url 'post-comment' post.id%}" >
+                            <textarea rows="2" id="myText" class="form-control" name="comment" placeholder="add your comment"  post_id={{post.id}}/></textarea>
+                            <button class="btn btn-light" >Submit</button>
+                        </form>
+                        <hr>
+                        <a href="{% url 'post-comment' object.id %}">Add Comment</a>
             {% endif %}
                 <br>
                     {% if user.is_authenticated %}
