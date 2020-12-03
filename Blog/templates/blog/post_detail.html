@@ -43,11 +43,11 @@
                     {{ comment.Text }}
                     </p>
                     <div class="reply mx-0">
-                            <button name="button" type="submit" data-toggle="collapse" data-target="#replyBox{{ comment.id }}" aria-expanded="false" aria-controls="replyBox{{ comment.id }}"><i class="fa fa-reply" aria-hidden="true"></i>
+                            <button name="button" type="submit" data-toggle="collapse" data-target="#replyBox{{ object.id }}" aria-expanded="false" aria-controls="replyBox{{ comment.id }}"><i class="fa fa-reply" aria-hidden="true"></i>
                             </button>
-                        <div class="collapse" id="replyBox{{ comment.id }}">
+                        <div class="collapse" id="replyBox{{ object.id }}">
                             <div class="card card-body my-2">
-                                <a href="{% url 'post-comment' comment.id %}">Add a reply</a>
+                                <a href="{% url 'post-comment' object.id %}">Add a reply</a>
                                 {% for reply in post.replies.all  %}
                                     <strong class="font-weight-normal">
                                         {{ reply.name }} -
