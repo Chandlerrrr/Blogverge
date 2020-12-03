@@ -94,6 +94,11 @@ class AddCategoryView(CreateView):
         context['choices'] = Category.objects.all()
         return context
 
+    def AddCatView(self, request, pk):
+        category = get_object_or_404(Post, id=request.POST.get('submit'))
+        category.choices.__add__(self, request.user.id)
+        return HttpResponseRedirect(reverse('add-category', args=[str(pk)]))
+    
 
 class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Post
