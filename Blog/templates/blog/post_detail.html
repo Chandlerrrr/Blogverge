@@ -44,7 +44,7 @@
                             </button>
                         <div class="collapse" id="replyBox{{ comment.id }}">
                             <div class="card card-body my-2">
-                                <form action="add_comment.html" method="post">
+                                <form action="{% url 'post-comment' post.id%}" method="post">
                                     {% csrf_token %}
                                     <div class="form-group">
                                         <label for="comment">Post Comment</label>
