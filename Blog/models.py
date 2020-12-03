@@ -49,6 +49,10 @@ class Post(models.Model):
     likes = models.ManyToManyField(User, related_name="blog_posts")
     dislikes = models.ManyToManyField(User, related_name="blog_postss")
 
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.parent = None
+
     def total_likes(self):
         return self.likes.count()
 
