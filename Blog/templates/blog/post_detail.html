@@ -57,7 +57,7 @@
                                     <button class="btn btn-info" role="button" type="submit" name="submit">Submit</button>
                                 </form>
                                 {% for reply in comment.replies.all %}
-                                    <p class="font-weight-normal">{{ reply }}</p>
+                                    <p class="font-weight-normal">{{ reply.name }} - {{ reply.Text }}</p>
                                     {% endfor %}
                             </div>
                         </div>
