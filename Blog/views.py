@@ -38,8 +38,8 @@ def DisLikeView(request, pk):
 
 def AddReplyView(request, pk):
     replies = get_object_or_404(Post, id=request.POST.get('submit'))
-    replies.__class__.objects.add(request.user.id)
-    return render(reverse('post-detail', args=[str(pk)]), template_name='blog/post_detail.html')
+    replies.save()
+    return HttpResponseRedirect(reverse('post-detail', args=[str(pk)]))
 
 
 class PostListView(ListView):
