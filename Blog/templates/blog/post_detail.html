@@ -63,13 +63,12 @@
                                                 </div>
                                                 <textarea class="form-control" aria-label="With textarea" name="Text" ></textarea>
                                             </div>
-
                                         </fieldset>
                                         <div class="form-group">
                                             <button class="btn btn-info" role="button" type="submit" name="submit" value="{{ post.pk }}">Submit</button>
                                         </div>
                                     </form>
-                                {% for reply in replies %}
+                                {% for reply in comment.replies.all %}
                                     <p class="font-weight-normal">{{ reply.name }} - {{ reply.Text }}</p>
                                     {% endfor %}
                             </div>
