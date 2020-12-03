@@ -44,18 +44,19 @@
                             </button>
                         <div class="collapse" id="replyBox{{ comment.id }}">
                             <div class="card card-body my-2">
-                                <form method="POST">
-                                    {% csrf_token %}
-                                    <div class="form-group">
-                                        <label for="comment">Reply to this comment :</label>
-                                        <label>
-                                            <input type="text" class="form-control" name="comment" placeholder="enter your comment" size="50">
-                                        </label>
-                                        <input type="hidden" name="parentsid" value="{{ comment.id }}">
-                                    </div>
-                                    <input type="hidden" name="postsid" value="{{ post.id }}">
-                                    <button class="btn btn-info" role="button" type="submit" name="submit">Submit</button>
-                                </form>
+                                <div class="content-section">
+                                    <form method="POST">
+                                        {% csrf_token %}
+                                        <fieldset class="form-group">
+                                            <legend class="border-bottom mb-4">
+                                                <h6 class="font-weight-normal"> Reply to this comment </h6>
+                                            </legend>
+                                            {{ form|crispy }}
+                                        </fieldset>
+                                        <div class="form-group">
+                                            <button class="btn btn-info" role="button" type="submit" name="submit">Submit</button>
+                                        </div>
+                                    </form>
                                 {% for reply in comment.replies.all %}
                                     <p class="font-weight-normal">{{ reply.name }} - {{ reply.Text }}</p>
                                     {% endfor %}
