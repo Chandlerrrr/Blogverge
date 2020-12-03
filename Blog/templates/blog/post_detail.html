@@ -44,19 +44,19 @@
                             </button>
                         <div class="collapse" id="replyBox{{ comment.id }}">
                             <div class="card card-body my-2">
-                                <form action="{% url 'post-detail' post.id%}" method="post">
+                                <form method="POST">
                                     {% csrf_token %}
                                     <div class="form-group">
-                                        <label for="comment">Post Comment</label>
+                                        <label for="comment">Reply to this comment :</label>
                                         <label>
-                                            <input type="text" class="form-control" name="comment" placeholder="enter your comment">
+                                            <input type="text" class="form-control" name="comment" placeholder="enter your comment" size="50">
                                         </label>
                                         <input type="hidden" name="parentsid" value="{{ comment.id }}">
                                     </div>
                                     <input type="hidden" name="postsid" value="{{ post.id }}">
-                                    <button type="submit" role="button" name="submit" class="btn btn-primary">Submit</button>
+                                    <button class="btn btn-info" role="button" type="submit" name="submit">Submit</button>
                                 </form>
-                                {% for reply in post.replies.all %}
+                                {% for reply in comment.replies.all %}
                                     <p class="font-weight-normal">{{ reply }}</p>
                                     {% endfor %}
                             </div>
