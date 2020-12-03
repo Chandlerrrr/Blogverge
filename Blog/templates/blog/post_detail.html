@@ -56,8 +56,8 @@
                                     <input type="hidden" name="postsid" value="{{ post.id }}">
                                     <button type="submit" role="button" name="submit" class="btn btn-primary">Submit</button>
                                 </form>
-                                {% for reply in parents %}
-                                    <p class="font-weight-normal">{{ parents }}</p>
+                                {% for reply in post.replies.all %}
+                                    <p class="font-weight-normal">{{ reply }}</p>
                                     {% endfor %}
                             </div>
                         </div>

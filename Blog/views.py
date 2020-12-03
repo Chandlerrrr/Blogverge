@@ -71,9 +71,8 @@ class PostCommentView(CreateView):
         return super().form_valid(form)
 
     def AddReplyView(self, request, pk):
-        parent = get_object_or_404(Post, id=request.POST.get('submit'))
-        parents = parent.objects.all()
-        parents.objects.__add__(self, request.user.id)
+        replies = get_object_or_404(Post, id=request.POST.get('submit'))
+        replies.objects.add(request.user.id)
         return HttpResponseRedirect(reverse('post-detail', args=[str(pk)]))
 
     def get_success_url(self):
