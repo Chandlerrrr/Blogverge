@@ -54,7 +54,7 @@
                                         <input type="hidden" name="parentsid" value="{{ comment.id }}">
                                     </div>
                                     <input type="hidden" name="postsid" value="{{ post.id }}">
-                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                    <button type="submit" role="button" name="submit" class="btn btn-primary">Submit</button>
                                 </form>
                                 {% for reply in parents %}
                                     <p class="font-weight-normal">{{ parents }}</p>
