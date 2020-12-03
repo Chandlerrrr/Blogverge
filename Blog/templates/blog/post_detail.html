@@ -23,14 +23,12 @@
                     <p class="article-content">{{ object.content|safe }}</p>
                 <br>
                 </div>
-                <br>
     </div>
 
         <div class="media content-section">
         <div class="media-body">
-
             <br>
-            <h3><p class="font-weight-bold"> Comments.. {{ post.comments.count }} </p></h3>
+            <h3><p class="font-weight-bold"> Comments.. ({{ post.comments.count }}) </p></h3>
             {% if not post.comments.all %}
                 No Comments Yet... <a href="{% url 'post-comment' object.id %}">Add One</a>
             {% else %}
@@ -50,7 +48,7 @@
                         <div class="collapse" id="replyBox{{ comment.id }}">
                             <div class="card card-body my-2">
                                 <a href="{% url 'post-comment' object.id %}">Add a reply</a>
-                                {% for reply in comment.replies.all  %}
+                                {% for reply in post.replies.all  %}
                                     <strong class="font-weight-normal">
                                         {{ reply.name }} -
                                         {{ reply.created_on }}
