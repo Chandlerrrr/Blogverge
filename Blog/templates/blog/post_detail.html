@@ -32,7 +32,6 @@
             {% if not post.comments.all %}
                 No Comments Yet... <a href="{% url 'post-comment' object.id %}">Add One</a>
             {% else %}
-                <br>
                 {% for comment in post.comments.all %}
                     <strong class="font-weight-normal">
                         {{ comment.name }} -
@@ -45,7 +44,16 @@
                             </button>
                         <div class="collapse" id="replyBox{{ comment.id }}">
                             <div class="card card-body my-2">
-                                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+                                <form action="add_comment.html" method="post">
+                                    {% csrf_token %}
+                                    <div class="form-group">
+                                        <label for="comment">Post Comment</label>
+                                        <input type="text" class="form-control" name="comment" placeholder="enter your comment">
+                                        <input type="hidden" name="parentsno" value="{{ comment.id }}">
+                                    </div>
+                                    <input type="hidden" name="postsno" value="{{ post.id }}">
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                </form>
                             </div>
                         </div>
                     <hr>

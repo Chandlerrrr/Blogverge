@@ -66,6 +66,25 @@ class PostCommentView(CreateView):
     form_class = CommentForm
     template_name = "blog/add_comment.html"
 
+    def postComment(self, request):
+        if request.method == "POST":
+            comment = request.POST.get("comment")
+            user = request.user
+            postsno = request.POST.get("postsno")
+            post = Post.objects.get(sno=postsno)
+            parentsno = request.POST.get("parentsno")
+            if parentsno == "":
+                comment = Comment(user=user, comment=comment, post=post)
+                comment.save()
+                messages.success(request,"Your comment has been posted successfully")
+            else:
+                parent = Comment.objects.get(sno=parentsno)
+                comment = Comment(comment=comment, user=user, post=post, parent=parent)
+                comment.save()
+                messages.success(request, "your reply has been posted successfully")
+
+        return reverse_lazy('post-detail', kwargs={'pk': self.kwargs['pk']})
+
     def form_valid(self, form):
         form.instance.post_id = self.kwargs['pk']
         return super().form_valid(form)

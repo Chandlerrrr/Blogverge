@@ -167,7 +167,7 @@
       <workItem from="1606889062021" duration="3924000" />
       <workItem from="1606893071800" duration="190000" />
       <workItem from="1606893402563" duration="193000" />
-      <workItem from="1606981763289" duration="22052000" />
+      <workItem from="1606981763289" duration="27014000" />
     </task>
     <servers />
   </component>
@@ -194,5 +194,16 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="django-line">
+          <url>file://$PROJECT_DIR$/Blog/templates/blog/post_detail.html</url>
+          <line>32</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
