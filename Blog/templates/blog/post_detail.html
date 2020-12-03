@@ -50,8 +50,7 @@
                                             <legend class="border-bottom mb-4">
                                                 <h6 class="font-weight-normal"> Reply to this comment </h6>
                                             </legend>
-                                            <input type="text" size="70" name="name" role="form" placeholder="yourname"> <br>
-                                            <input type="text" size="70" name="Text" placeholder="yourcomment" role="form">
+                                            {{ form|crispy }}
                                         </fieldset>
                                         <div class="form-group">
                                             <button class="btn btn-info" role="button" type="submit" name="submit">Submit</button>
