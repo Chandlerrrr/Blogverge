@@ -42,24 +42,19 @@
                         {{ comment.Text }}
                     </p>
                     {% for reply in comment.replies.all %}
-                        Reply:  {{ reply.comment }}
+                            <button class="btn btn-sm btn-primary" type="button" data-toggle="collapse" data-target="#replyBox{{ comment.id }}" aria-expanded="false" aria-controls="replyBox{{ comment.id }}">
+                                Reply
+                            </button>
 
+                        <div class="collapse" id="replyBox{{ comment.id }}">
+                            <div class="card card-body my-2">
+                                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+                            </div>
+                        </div>
                     {% endfor %}
                 {% endfor %}
-
-                    <button class="btn btn-light" type="button"  data-toggle="collapse" data-target="#collapseExample{{post.id}}" aria-expanded="false" aria-controls="collapseExample">
-                        <span class="icon"><i class="fas fa-fw fa-file"></i></span>Add Comment
-                    </button>
-
-                    <div class="collapse" id="collapseExample{{post.id}}">
-
-                        <form action="{% url 'post-comment' post.id%}" >
-                            <textarea rows="2" id="myText" class="form-control" name="comment" placeholder="add your comment"  post_id={{post.id}}/></textarea>
-                            <button class="btn btn-light" >Submit</button>
-                        </form>
-                        <hr>
-                        <a href="{% url 'post-comment' object.id %}">Add Comment</a>
             {% endif %}
+
                 <br>
                     {% if user.is_authenticated %}
                         <p class="text-muted">Tell us what do you think?. <3 </p>
