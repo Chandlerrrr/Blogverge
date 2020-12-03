@@ -59,13 +59,6 @@
                                     <p class="font-weight-light">
                                         {{ reply.Text }}
                                     </p>
-                                    <form action="." method="post">
-                                        {{ form|crispy }}
-                                        {% csrf_token %}
-                                        <!-- Hidden input for parent comment.id -->
-                                        <input type="hidden" name="parent_id" value="{{ comment.id }}">
-                                        <input class="btn btn-info" type="submit" value="reply">
-                                    </form>
                                 {% endfor %}
                             </div>
                         </div>
