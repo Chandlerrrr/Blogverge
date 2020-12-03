@@ -36,6 +36,12 @@ def DisLikeView(request, pk):
     return HttpResponseRedirect(reverse('post-detail', args=[str(pk)]))
 
 
+def AddReplyView(request, pk):
+    replies = get_object_or_404(Post, id=request.POST.get('submit'))
+    replies.objects.add(request.user.id)
+    return render(reverse('post-detail', args=[str(pk)]), template_name='blog/post_detail.html')
+
+
 class PostListView(ListView):
     model = Post
     template_name = 'blog/home.html'
@@ -69,11 +75,6 @@ class PostCommentView(CreateView):
     def form_valid(self, form):
         form.instance.post_id = self.kwargs['pk']
         return super().form_valid(form)
-
-    def AddReplyView(self, request, pk):
-        replies = get_object_or_404(Post, id=request.POST.get('submit'))
-        replies.objects.add(request.user.id)
-        return render(reverse('post-detail', args=[str(pk)]), template_name='blog/post_detail.html')
 
     def get_success_url(self):
         return reverse_lazy('post-detail', kwargs={'pk': self.kwargs['pk']})
