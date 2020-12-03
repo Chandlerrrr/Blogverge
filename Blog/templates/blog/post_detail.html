@@ -53,11 +53,11 @@
                 <br>
                     {% if user.is_authenticated %}
                         <div class="row">
-                        <p class="text-muted">Tell us what do you think?. <3 </p>
+                        <p class="text-muted">Tell us what do you think?. <3 </p> <br>
                         <form action="{% url 'like_post' post.pk %}" method="post">
                             {% csrf_token %}
                             <button type="submit"  name="post_id"  value="{{ post.id }}"><i class="fa fa-thumbs-up" aria-hidden="true"></i><p class="font-weight-light"></p></button> - <small class="text-muted">{{ post.total_likes }} Like {{ post.total_likes|pluralize }} </small>
-                        </form>
+                        </form> &nbsp; &nbsp; &nbsp;
                         <form action="{% url 'dislike_post' post.pk %}" method="post" style="float: right">
                             {% csrf_token %}
                             <button type="submit"  name="post_idd"  value="{{ post.id }}"><i class="fa fa-thumbs-down" aria-hidden="true"></i><p class="font-weight-light"></p></button> - <small class="text-muted">{{ post.total_dislike }} Dislike {{ post.total_dislike|pluralize }} </small>
