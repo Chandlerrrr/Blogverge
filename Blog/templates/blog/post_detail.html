@@ -32,15 +32,15 @@
             {% if not post.comments.all %}
                 No Comments Yet... <a href="{% url 'post-comment' object.id %}">Add One</a>
             {% else %}
+                <br>
                 {% for comment in post.comments.all %}
                     <strong class="font-weight-normal">
                         {{ comment.name }} -
                         {{ comment.created_on }}
                     </strong>
-                    <br/>
                     <p class="font-weight-light">
                         {{ comment.Text }}
-                    </p><hr>
+                    </p>
                             <button type="button" data-toggle="collapse" data-target="#replyBox{{ comment.id }}" aria-expanded="false" aria-controls="replyBox{{ comment.id }}"><i class="fa fa-reply" aria-hidden="true"></i>
                             </button>
                         <div class="collapse" id="replyBox{{ comment.id }}">
@@ -48,6 +48,7 @@
                                 Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
                             </div>
                         </div>
+                    <hr>
                 {% endfor %}
                     <a href="{% url 'post-comment' object.id %}">Add Comment</a>
             {% endif %}
