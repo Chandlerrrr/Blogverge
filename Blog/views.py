@@ -65,7 +65,7 @@ class PostCommentView(CreateView):
     model = Comment
     form_class = CommentForm
     template_name = "blog/add_comment.html"
-    fields = ['Name', 'Text']
+    fields = ['name', 'Text']
 
     def form_valid(self, form):
         form.instance.post_id = self.kwargs['pk']
@@ -74,7 +74,7 @@ class PostCommentView(CreateView):
     def AddReplyView(self, request, pk):
         replies = get_object_or_404(Post, id=request.POST.get('submit'))
         replies.objects.add(request.user.id)
-        return HttpResponseRedirect(reverse('post-detail', args=[str(pk)]))
+        return render(reverse('post-detail', args=[str(pk)]), template_name='blog/post_detail.html')
 
     def get_success_url(self):
         return reverse_lazy('post-detail', kwargs={'pk': self.kwargs['pk']})
