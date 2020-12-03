@@ -31,7 +31,7 @@ def LikeView(request, pk):
 
 
 def DisLikeView(request, pk):
-    post = get_object_or_404(Post, id=request.POST.get('post_id'))
+    post = get_object_or_404(Post, id=request.POST.get('post_idd'))
     post.dislikes.add(request.user.id)
     return HttpResponseRedirect(reverse('post-detail', args=[str(pk)]))
 
@@ -98,7 +98,7 @@ class AddCategoryView(CreateView):
         category = get_object_or_404(Post, id=request.POST.get('submit'))
         category.choices.__add__(self, request.user.id)
         return HttpResponseRedirect(reverse('add-category', args=[str(pk)]))
-    
+
 
 class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Post

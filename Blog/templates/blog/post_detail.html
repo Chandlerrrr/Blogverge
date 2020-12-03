@@ -55,7 +55,7 @@
                         <form action="{% url 'like_post' post.pk %}" method="post">
                             {% csrf_token %}
                                 <p class="text-muted">Tell us what do you think?. <3 </p>
-                                <button type="submit"  name="post_id"  value="{{ post.id }}"><i class="fa fa-thumbs-down" aria-hidden="true"></i><p class="font-weight-light"></p></button> - <small class="text-muted">{{ post.total_dislike }} Unlike {{ post.total_dislike|pluralize }} </small> &nbsp; &nbsp; &nbsp; &nbsp; <button type="submit"  name="post_id"  value="{{ post.id }}"><i class="fa fa-thumbs-up" aria-hidden="true"></i><p class="font-weight-light"></p></button> - <small class="text-muted">{{ post.total_likes }} Like {{ post.total_likes|pluralize }} </small>
+                                <button type="submit"  name="post_idd"  value="{{ post.id }}"><i class="fa fa-thumbs-down" aria-hidden="true"></i><p class="font-weight-light"></p></button> - <small class="text-muted">{{ post.total_dislike }} Unlike {{ post.total_dislike|pluralize }} </small> &nbsp; &nbsp; &nbsp; &nbsp; <button type="submit"  name="post_id"  value="{{ post.id }}"><i class="fa fa-thumbs-up" aria-hidden="true"></i><p class="font-weight-light"></p></button> - <small class="text-muted">{{ post.total_likes }} Like {{ post.total_likes|pluralize }} </small>
                         </form>
                     {% else %}
                             <small class="font-weight-normal"><a href="{% url 'login' %}">Login to like</a></small>
