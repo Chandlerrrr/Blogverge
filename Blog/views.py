@@ -37,8 +37,8 @@ def DisLikeView(request, pk):
 
 
 def AddReplyView(request, pk):
-    post = get_object_or_404(Post, id=request.POST.get('submit'))
-    post.parent.add(request.user.id)
+    replies = get_object_or_404(Post, id=request.POST.get('submit'))
+    replies.save()
     return HttpResponseRedirect(reverse('post-detail', args=[str(pk)]))
 
 
