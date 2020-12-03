@@ -30,7 +30,7 @@
         <div class="media-body">
 
             <br>
-            <h4><p class="font-weight-bold"> Comments... </p></h4>
+            <h3><p class="font-weight-bold"> Comments.. {{ post.comments.count }} </p></h3>
             {% if not post.comments.all %}
                 No Comments Yet... <a href="{% url 'post-comment' object.id %}">Add One</a>
             {% else %}
@@ -44,15 +44,40 @@
                     <p class="font-weight-light">
                     {{ comment.Text }}
                     </p>
+                    <div class="reply mx-0">
+                            <button name="button" type="submit" data-toggle="collapse" data-target="replyBox {{ comment.id }}" aria-expanded="false" aria-controls="replyBox {{ comment.id }}"><i class="fa fa-reply" aria-hidden="true"></i>
+                            </button>
+                        <div class="collapse" id="replyBox {{ comment.id }}">
+                            <div class="card card-body my-2">
+                                <a href="{% url 'post-comment' object.id %}">Add a reply</a>
+                                {% for reply in comment.replies.all  %}
+                                    <strong class="font-weight-normal">
+                                        {{ reply.name }} -
+                                        {{ reply.created_on }}
+                                    </strong>
+                                    <br/>
+                                    <p class="font-weight-light">
+                                        {{ reply.Text }}
+                                    </p>
+                                    <form action="." method="post">
+                                        {{ comment_form.as_p }}
+                                        {% csrf_token %}
+                                        <!-- Hidden input for parent comment.id -->
+                                        <input type="hidden" name="parent_id" value="{{ comment.id }}">
+                                        <input class="btn btn-info" type="submit" value="Replay">
+                                    </form>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
                     <hr>
-
                 {% endfor %}
                     <a href="{% url 'post-comment' object.id %}">Add Comment</a>
             {% endif %}
                 <br>
                 <br>
                     {% if user.is_authenticated %}
-                        <p class="text-muted">Tell us what do you think?. <3 </p> &nbsp; <br>
+                        <p class="text-muted">Tell us what do you think?. <3 </p> &nbsp;
                         <div class="row">
                         &nbsp; &nbsp;
                         <form action="{% url 'like_post' post.pk %}" method="post">
