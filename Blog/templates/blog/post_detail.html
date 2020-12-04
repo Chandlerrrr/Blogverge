@@ -34,9 +34,10 @@
             {% else %}
                 {% for comment in post.comments.all %}
                     <strong class="font-weight-normal">
-                        {{ comment.name }} -
+                        <b>{{ comment.name }}</b> -
                         {{ comment.created_on }}
                     </strong>
+                    <div class="row">
                     <p class="font-weight-light">
                         {{ comment.Text }}
                     </p>
@@ -56,7 +57,6 @@
                                                 </div>
                                                 <input name="name" type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
                                             </div>
-                                            <br>
                                             <div class="input-group">
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text">Comment here</span>
@@ -71,17 +71,20 @@
                                     </form>
 
                             {% if comment.replies.all %}
-                                <p class="font-weight-normal">Replies <code>{{ comment.replies.all.count }}</code></p>
+                                <p class="font-weight-bold">Replies <code>{{ comment.replies.all.count }}</code></p>
                                 {% for reply in comment.replies.all %}
                                         <div class="container  pt-0">
                                             <div class="container rounded border border-info bg-white pt-0 ml-0">
-                                                <p class="font-weight-normal">{{ reply.name }} - {{ reply.Text|urlize }}</p>
+                                                <p class="font-weight-normal"><b>Name :</b>{{ reply.name }}</p>
+                                                <p class="font-weight-normal">{{ reply.Text|urlize }}</p>
+
                                             </div>
                                         </div>
                                 {% endfor %}
                             {% endif %}
                             </div>
                         </div>
+                    </div>
                     <hr>
                 {% endfor %}
                     <a href="{% url 'post-comment' object.id %}">Add Comment</a>
