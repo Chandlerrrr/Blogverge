@@ -37,14 +37,11 @@
                         <b>{{ comment.name }}</b> -
                         {{ comment.created_on }}
                     </strong>
-                    <div class="row">
-                    &nbsp; &nbsp;
                     <p class="font-weight-light">
                         {{ comment.Text }}
-                    </p>  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                    </p>  &nbsp;
                             <button data-toggle="collapse" data-target="#replyBox{{ comment.id }}" aria-expanded="false" aria-controls="replyBox{{ comment.id }}"><i class="fa fa-reply" aria-hidden="true"></i>
                             </button>
-                    </div>
                         <div class="collapse" id="replyBox{{ comment.id }}">
                             <div class="card card-body my-2">
                                     <form action="{% url 'reply-comment' pk=post.id %}" method="POST">
