@@ -48,7 +48,7 @@ def AddReplyView(request, pk):
             reply_qs = Comment.objects.get(id=reply_id)
         comments = Comment(name=name, post=post, Text=comment, parent=reply_qs)
         comments.save()
-        return redirect('comment', pk=pk)
+        return redirect('post-detail', pk=pk)
     else:
         return render(request, 'blog/add_comment.html')
 
