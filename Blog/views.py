@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from .models import Post, Comment, Category
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView, DetailView
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
@@ -37,14 +37,20 @@ def DisLikeView(request, pk):
 
 
 def AddReplyView(request, pk):
-    Comment = get_object_or_404(Post, pk)
+    post = Post.objects.get(pk=pk)
     if request.method == 'POST':
-        Comment.name = get_object_or_404(Post, id=request.POST.get('namee'))
-        Comment.Text = get_object_or_404(Post, id=request.POST.get('Textt'))
-        Comment.parent.objects.create(name=Comment.name, Text=Comment.Text)
-    Comment.save()
-    return HttpResponseRedirect(reverse('post-detail', args=[str(pk)]))
-    # return render(request, 'blog/post_detail.html')
+        user = request.user
+        post = post
+        comment = request.POST['comment']
+        reply_id = request.POST['comment_id']
+        reply_qs = None
+        if reply_id is not None:
+            reply_qs = Comment.objects.get(id=reply_id)
+        comments = Comment(user=user, post=post, comment=comment, reply=reply_qs)
+        comments.save()
+        return redirect('comment', pk=pk)
+    else:
+        return render(request, 'blog/add_comment.html')
 
 
 class PostListView(ListView):
