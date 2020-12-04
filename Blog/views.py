@@ -37,10 +37,14 @@ def DisLikeView(request, pk):
 
 
 def AddReplyView(request, pk):
-    name = get_object_or_404(Post, id=request.POST.get('namee'))
-    Text = get_object_or_404(Post, id=request.POST.get('Textt'))
-    Comment.parent.objects.create(name=name, Text=Text)
-    return render(request, 'blog/post_detail.html')
+    Comment = get_object_or_404(Post, pk)
+    if request.method == 'POST':
+        Comment.name = get_object_or_404(Post, id=request.POST.get('namee'))
+        Comment.Text = get_object_or_404(Post, id=request.POST.get('Textt'))
+        Comment.parent.objects.create(name=Comment.name, Text=Comment.Text)
+    Comment.save()
+    return HttpResponseRedirect(reverse('post-detail', args=[str(pk)]))
+    # return render(request, 'blog/post_detail.html')
 
 
 class PostListView(ListView):
