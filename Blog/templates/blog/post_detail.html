@@ -45,6 +45,7 @@
                         <div class="collapse" id="replyBox{{ comment.id }}">
                             <div class="card card-body my-2">
                                     <form method="POST">
+                                        {% csrf_token %}
                                         <fieldset class="form-group">
                                             <legend class="border-bottom mb-4">
                                                 <h6 class="font-weight-normal"> Reply to this comment </h6>
@@ -53,14 +54,14 @@
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text" id="basic-addon1">@</span>
                                                 </div>
-                                                <input name="name" type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+                                                <input name="namee" type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
                                             </div>
                                             <br>
                                             <div class="input-group">
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text">With textarea</span>
                                                 </div>
-                                                <textarea class="form-control" aria-label="With textarea" name="Text" ></textarea>
+                                                <textarea class="form-control" aria-label="With textarea" name="Textt" ></textarea>
                                             </div>
                                         </fieldset>
                                         <div class="form-group">
