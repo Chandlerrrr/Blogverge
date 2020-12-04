@@ -39,8 +39,8 @@ def DisLikeView(request, pk):
 def AddReplyView(request, pk):
     post = Post.objects.get(pk=pk)
     if request.method == 'POST':
-        user = request.user
         post = post
+        user = request.POST['name']
         comment = request.POST['comment']
         reply_id = request.POST['comment_id']
         reply_qs = None

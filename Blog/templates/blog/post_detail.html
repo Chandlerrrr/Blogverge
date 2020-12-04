@@ -50,6 +50,12 @@
                                             <legend class="border-bottom mb-4">
                                                 <h6 class="font-weight-normal"> Reply to this comment </h6>
                                             </legend>
+                                            <div class="input-group mb-3">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text" id="basic-addon1">name</span>
+                                                </div>
+                                                <input name="name" type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+                                            </div>
                                             <br>
                                             <div class="input-group">
                                                 <div class="input-group-prepend">
@@ -63,16 +69,15 @@
                                             <button class="btn btn-info" role="button" type="submit" name="submitt" value="{{ post.pk }}">reply</button>
                                         </div>
                                     </form>
+                            
                             {% if comment.replies.all %}
                                 <p class="font-weight-normal">Replies <code>{{ comment.replies.all.count }}</code></p>
                                 {% for reply in comment.replies.all %}
-                                    <div class="card-body border-0 pt-0">
                                         <div class="container  pt-0">
                                             <div class="container rounded border border-info bg-white pt-0 ml-0">
-                                                <p class="font-weight-normal">{{ reply.comment|urlize }}</p>
+                                                <p class="font-weight-normal">{{ reply.user }} - {{ reply.comment|urlize }}</p>
                                             </div>
                                         </div>
-                                    </div>
                                 {% endfor %}
                             {% endif %}
                             </div>
