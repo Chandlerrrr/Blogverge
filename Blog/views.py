@@ -46,7 +46,7 @@ def AddReplyView(request, pk):
         reply_qs = None
         if reply_id is not None:
             reply_qs = Comment.objects.get(id=reply_id)
-        comments = Comment(name=name, post=post, comment=comment, reply=reply_qs)
+        comments = Comment(name=name, post=post, Text=comment, reply=reply_qs)
         comments.save()
         return redirect('comment', pk=pk)
     else:

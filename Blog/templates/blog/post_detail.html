@@ -75,7 +75,7 @@
                                 {% for reply in comment.replies.all %}
                                         <div class="container  pt-0">
                                             <div class="container rounded border border-info bg-white pt-0 ml-0">
-                                                <p class="font-weight-normal">{{ reply.user }} - {{ reply.comment|urlize }}</p>
+                                                <p class="font-weight-normal">{{ reply.name }} - {{ reply.Text|urlize }}</p>
                                             </div>
                                         </div>
                                 {% endfor %}
