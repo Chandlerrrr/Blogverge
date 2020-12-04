@@ -40,7 +40,7 @@
                     <div class="row">
                     <p class="font-weight-light">
                         {{ comment.Text }}
-                    </p>
+                    </p>  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
                             <button data-toggle="collapse" data-target="#replyBox{{ comment.id }}" aria-expanded="false" aria-controls="replyBox{{ comment.id }}"><i class="fa fa-reply" aria-hidden="true"></i>
                             </button>
                     </div>
@@ -76,9 +76,8 @@
                                 {% for reply in comment.replies.all %}
                                         <div class="container  pt-0">
                                             <div class="container rounded border border-info bg-white pt-0 ml-0">
-                                                <p class="font-weight-normal"><b>name :</b>{{ reply.name }}</p>
+                                                <p class="font-weight-normal"><b>name :</b>&nbsp; {{ reply.name }}</p>
                                                 <p class="font-weight-normal">{{ reply.Text|urlize }}</p>
-
                                             </div>
                                         </div>
                                 {% endfor %}
