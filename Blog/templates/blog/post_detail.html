@@ -68,11 +68,8 @@
                                 {% for reply in comment.replies.all %}
                                     <div class="card-body border-0 pt-0">
                                         <div class="container  pt-0">
-                                            <code>by <a  class="card-link"  href="{% url 'profile' %}">
-                                                {{reply.user.username}} </a>
-                                            </code>
                                             <div class="container rounded border border-info bg-white pt-0 ml-0">
-                                                <p class="font-weight-normal">{{ reply.user.username }} - {{ reply.comment|urlize }}</p>
+                                                <p class="font-weight-normal">{{ reply.comment|urlize }}</p>
                                             </div>
                                         </div>
                                     </div>
