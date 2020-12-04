@@ -69,7 +69,7 @@
                                             <button class="btn btn-info" role="button" type="submit" name="submitt" value="{{ post.pk }}">reply</button>
                                         </div>
                                     </form>
-                            
+
                             {% if comment.replies.all %}
                                 <p class="font-weight-normal">Replies <code>{{ comment.replies.all.count }}</code></p>
                                 {% for reply in comment.replies.all %}

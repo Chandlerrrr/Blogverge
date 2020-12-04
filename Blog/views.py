@@ -40,8 +40,8 @@ def AddReplyView(request, pk):
     post = Post.objects.get(pk=pk)
     if request.method == 'POST':
         post = post
-        user = request.POST['name']
-        comment = request.POST['comment']
+        user = request.POST.get['name']
+        comment = request.POST.get['comment']
         reply_id = request.POST['comment_id']
         reply_qs = None
         if reply_id is not None:
