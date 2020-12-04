@@ -40,7 +40,7 @@ def AddReplyView(request, pk):
     name = get_object_or_404(Post, id=request.POST.get('namee'))
     Text = get_object_or_404(Post, id=request.POST.get('Textt'))
     Comment.parent.objects.create(name=name, Text=Text)
-    return HttpResponseRedirect(reverse('post-detail', args=[str(pk)]))
+    return render(reverse('post-detail', args=[str(pk)]), template_name='blog/post_detail.html')
 
 
 class PostListView(ListView):
