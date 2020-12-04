@@ -41,13 +41,13 @@ def AddReplyView(request, pk):
     if request.method == 'POST':
         post = post
         name = request.POST.get('name')
-        comment = request.POST.get('comment')
+        replies = request.POST.get('comment')
         reply_id = request.POST['comment_id']
         reply_qs = None
         if reply_id is not None:
             reply_qs = Comment.objects.get(id=reply_id)
-        comments = Comment(name=name, post=post, Text=comment, parent=reply_qs)
-        comments.save()
+        replies = Comment(name=name, post=post, Text=replies, parent=reply_qs)
+        replies.save()
         return redirect('post-detail', pk=pk)
     else:
         return render(request, 'blog/add_comment.html')
