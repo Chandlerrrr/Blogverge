@@ -68,7 +68,7 @@
                                 {% for reply in comment.replies.all %}
                                     <div class="card-body border-0 pt-0">
                                         <div class="container  pt-0">
-                                            <code>by <a  class="card-link"  href="{% url 'profile' pk=reply.user.pk %}">
+                                            <code>by <a  class="card-link"  href="{% url 'profile' %}">
                                                 {{reply.user.username}} </a>
                                             </code>
                                             <div class="container rounded border border-info bg-white pt-0 ml-0">
