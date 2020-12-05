@@ -25,12 +25,12 @@
                     <p class="article-content">{{ object.content|safe }}</p>
                 <br>
                 </div>
-                <div class="fb-like" data-href="https://blogverge.herokuapp.com/post/{{ post.id }}" data-width="" data-layout="button_count" data-action="like" data-size="small" data-share="true"> &nbsp; &nbsp;
+                    <div class="fb-like" data-href="https://blogverge.herokuapp.com/post/{{ post.id }}" data-width="" data-layout="button_count" data-action="like" data-size="small" data-share="true"></div> &nbsp; &nbsp;
                     <a class="twitter-share-button"
                        href="https://twitter.com/intent/tweet?text={{ object.title }} - {{ object.content| truncatechars:350 }} - &nbsp; {{ post.get_absolute_url }}"
                        data-size="large"><i class="fa fa-twitter-square" aria-hidden="true"></i>
                         Tweet</a>
-                </div>
+                
     </div>
 
         <div class="media content-section">
