@@ -22,40 +22,52 @@
                     </div>
                     <p class="article-content">{{ object.content|safe }}</p>
                     <br>
-                    <div class="fb-like" data-href="https://blogverge.herokuapp.com/post/{{ post.id }}" data-width="" data-layout="button_count" data-action="like" data-size="small" data-share="true"></div>
+                    <div class="fb-like" data-href="https://blogverge.herokuapp.com/post/{{ post.id }}" data-width="" data-layout="button_count" data-action="like" data-size="small" data-share="true"></div> <br>
                     <a href="https://twitter.com/share?text={{ object.title }}&ref_src=twsrc%5Etfw&hashtags={{ object.tags }}" class="twitter-share-button" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-                        <div class="star-rating">
-                            <span class="fa fa-star-o" data-rating="1"></span>
-                            <span class="fa fa-star-o" data-rating="2"></span>
-                            <span class="fa fa-star-o" data-rating="3"></span>
-                            <span class="fa fa-star-o" data-rating="4"></span>
-                            <span class="fa fa-star-o" data-rating="5"></span>
-                            <input type="hidden" name="whatever" class="rating-value" value="3">
-                            <script>
-                                var $star_rating = $('.star-rating .fa');
+                    <div class="rating-select">
+                        <div class="btn btn-default btn-sm"><span class="glyphicon glyphicon-star-empty"></span></div>
+                        <div class="btn btn-default btn-sm"><span class="glyphicon glyphicon-star-empty"></span></div>
+                        <div class="btn btn-default btn-sm"><span class="glyphicon glyphicon-star-empty"></span></div>
+                        <div class="btn btn-default btn-sm"><span class="glyphicon glyphicon-star-empty"></span></div>
+                        <div class="btn btn-default btn-sm"><span class="glyphicon glyphicon-star-empty"></span></div>
 
-                                var SetRatingStar = function() {
-                                    return $star_rating.each(function() {
-                                        if (parseInt($star_rating.siblings('input.rating-value').val()) >= parseInt($(this).data('rating'))) {
-                                            return $(this).removeClass('fa-star-o').addClass('fa-star');
-                                        } else {
-                                            return $(this).removeClass('fa-star').addClass('fa-star-o');
-                                        }
-                                    });
-                                };
-
-                                $star_rating.on('click', function() {
-                                    $star_rating.siblings('input.rating-value').val($(this).data('rating'));
-                                    return SetRatingStar();
+                        <script>
+                            $(function(){
+                                $('.rating-select .btn').on('mouseover', function(){
+                                    $(this).removeClass('btn-default').addClass('btn-warning');
+                                    $(this).prevAll().removeClass('btn-default').addClass('btn-warning');
+                                    $(this).nextAll().removeClass('btn-warning').addClass('btn-default');
                                 });
 
-                                SetRatingStar();
-                            </script>
-                            <script type="text/coffeescript" src="star_rating.coffee"></script>
-                        </div>
+                                $('.rating-select').on('mouseleave', function(){
+                                    active = $(this).parent().find('.selected');
+                                    if(active.length) {
+                                        active.removeClass('btn-default').addClass('btn-warning');
+                                        active.prevAll().removeClass('btn-default').addClass('btn-warning');
+                                        active.nextAll().removeClass('btn-warning').addClass('btn-default');
+                                    } else {
+                                        $(this).find('.btn').removeClass('btn-warning').addClass('btn-default');
+                                    }
+                                });
+
+                                $('.rating-select .btn').click(function(){
+                                    if($(this).hasClass('selected')) {
+                                        $('.rating-select .selected').removeClass('selected');
+                                    } else {
+                                        $('.rating-select .selected').removeClass('selected');
+                                        $(this).addClass('selected');
+                                    }
+                                });
+                            });
+
+                        </script>
+                        <div class="btn btn-{% if rate.value > 0 %}warning{% else %}default{% endif %}{% if rate.value == 1 %} selected{% endif %} btn-sm"><span class="glyphicon glyphicon-star-empty"></span></div>
+                    </div>
+
                 </div>
-                    <br>
+
     </div>
+                    <br>
 
         <div class="media content-section">
         <div class="media-body">
@@ -72,7 +84,6 @@
                     <p class="font-weight-light">
                         {{ comment.Text }}
                     </p>
-                    <br>
                     <i data-toggle="collapse" data-target="#replyBox{{ comment.id }}" aria-expanded="false" aria-controls="replyBox{{ comment.id }}" class="fa fa-reply" aria-hidden="true"></i>
                         <div class="collapse" id="replyBox{{ comment.id }}">
                             <div class="card card-body my-2">
