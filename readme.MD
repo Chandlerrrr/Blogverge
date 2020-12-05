@@ -38,5 +38,4 @@ This site was built using [crispy-forms](https://django-crispy-forms.readthedocs
 
 
 
-
-> Work in progress 
+Work in progress 
