@@ -26,8 +26,8 @@
                 <br>
                 <div class="fb-like" data-href="https://blogverge.herokuapp.com/post/{{ post.id }}" data-width="" data-layout="button_count" data-action="like" data-size="small" data-share="true"></div>
                     <a class="twitter-share-button"
-                       href="https://twitter.com/intent/tweet?text={{ object.title }}"
-                       data-size="large">
+                       href="https://twitter.com/intent/tweet?text={{ object.title }} - {{ object.content| truncatechars:350 }}"
+                       data-size="large"><i class="fa fa-twitter-square" aria-hidden="true"></i>
                         Tweet</a>
                 </div>
     </div>
