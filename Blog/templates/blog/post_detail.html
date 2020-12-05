@@ -21,56 +21,52 @@
                         <img class="img-thumbnail"  src="{{ object.header_image.url }}" style="align-items: center">
                     </div>
                     <p class="article-content">{{ object.content|safe }}</p>
-                    <br>
-                    <div class="fb-like" data-href="https://blogverge.herokuapp.com/post/{{ post.id }}" data-width="" data-layout="button_count" data-action="like" data-size="small" data-share="true"></div> <br>
-                    <a href="https://twitter.com/share?text={{ object.title }}&ref_src=twsrc%5Etfw&hashtags={{ object.tags }}" class="twitter-share-button" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-                    <div class="rating-select">
-                        <div class="btn btn-default btn-sm"><span class="glyphicon glyphicon-star-empty"></span></div>
-                        <div class="btn btn-default btn-sm"><span class="glyphicon glyphicon-star-empty"></span></div>
-                        <div class="btn btn-default btn-sm"><span class="glyphicon glyphicon-star-empty"></span></div>
-                        <div class="btn btn-default btn-sm"><span class="glyphicon glyphicon-star-empty"></span></div>
-                        <div class="btn btn-default btn-sm"><span class="glyphicon glyphicon-star-empty"></span></div>
-
-                        <script>
-                            $(function(){
-                                $('.rating-select .btn').on('mouseover', function(){
-                                    $(this).removeClass('btn-default').addClass('btn-warning');
-                                    $(this).prevAll().removeClass('btn-default').addClass('btn-warning');
-                                    $(this).nextAll().removeClass('btn-warning').addClass('btn-default');
-                                });
-
-                                $('.rating-select').on('mouseleave', function(){
-                                    active = $(this).parent().find('.selected');
-                                    if(active.length) {
-                                        active.removeClass('btn-default').addClass('btn-warning');
-                                        active.prevAll().removeClass('btn-default').addClass('btn-warning');
-                                        active.nextAll().removeClass('btn-warning').addClass('btn-default');
-                                    } else {
-                                        $(this).find('.btn').removeClass('btn-warning').addClass('btn-default');
-                                    }
-                                });
-
-                                $('.rating-select .btn').click(function(){
-                                    if($(this).hasClass('selected')) {
-                                        $('.rating-select .selected').removeClass('selected');
-                                    } else {
-                                        $('.rating-select .selected').removeClass('selected');
-                                        $(this).addClass('selected');
-                                    }
-                                });
-                            });
-
-                        </script>
-                        <div class="btn btn-{% if rate.value > 0 %}warning{% else %}default{% endif %}{% if rate.value == 1 %} selected{% endif %} btn-sm"><span class="glyphicon glyphicon-star-empty"></span></div>
-                    </div>
-
                 </div>
-
     </div>
-                    <br>
 
         <div class="media content-section">
         <div class="media-body">
+            <div class="fb-like" data-href="https://blogverge.herokuapp.com/post/{{ post.id }}" data-width="" data-layout="button_count" data-action="like" data-size="small" data-share="true"></div> <br>
+            <a href="https://twitter.com/share?text={{ object.title }}&ref_src=twsrc%5Etfw&hashtags={{ object.tags }}" class="twitter-share-button" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+            <div class="rating-select">
+                <div class="btn btn-default btn-sm"><span class="glyphicon glyphicon-star-empty"></span></div>
+                <div class="btn btn-default btn-sm"><span class="glyphicon glyphicon-star-empty"></span></div>
+                <div class="btn btn-default btn-sm"><span class="glyphicon glyphicon-star-empty"></span></div>
+                <div class="btn btn-default btn-sm"><span class="glyphicon glyphicon-star-empty"></span></div>
+                <div class="btn btn-default btn-sm"><span class="glyphicon glyphicon-star-empty"></span></div>
+            </div>
+            <script>
+                $(function(){
+                    $('.rating-select .btn').on('mouseover', function(){
+                        $(this).removeClass('btn-default').addClass('btn-warning');
+                        $(this).prevAll().removeClass('btn-default').addClass('btn-warning');
+                        $(this).nextAll().removeClass('btn-warning').addClass('btn-default');
+                    });
+
+                    $('.rating-select').on('mouseleave', function(){
+                        active = $(this).parent().find('.selected');
+                        if(active.length) {
+                            active.removeClass('btn-default').addClass('btn-warning');
+                            active.prevAll().removeClass('btn-default').addClass('btn-warning');
+                            active.nextAll().removeClass('btn-warning').addClass('btn-default');
+                        } else {
+                            $(this).find('.btn').removeClass('btn-warning').addClass('btn-default');
+                        }
+                    });
+
+                    $('.rating-select .btn').click(function(){
+                        if($(this).hasClass('selected')) {
+                            $('.rating-select .selected').removeClass('selected');
+                        } else {
+                            $('.rating-select .selected').removeClass('selected');
+                            $(this).addClass('selected');
+                        }
+                    });
+                });
+
+            </script>
+            <div class="btn btn-{% if rate.value > 0 %}warning{% else %}default{% endif %}{% if rate.value == 1 %} selected{% endif %} btn-sm"><span class="glyphicon glyphicon-star-empty"></span></div>
+
             <br>
             <h4><p class="font-weight-bold"> Comments.. ({{ post.comments.count }}) </p></h4>
             {% if not post.comments.all %}
