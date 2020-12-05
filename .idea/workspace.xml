@@ -32,6 +32,7 @@
         <option value="Python Script" />
         <option value="CSS File" />
         <option value="HTML File" />
+        <option value="CoffeeScript File" />
       </list>
     </option>
   </component>
@@ -54,7 +55,7 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="settings.editor.selected.configurable" value="watcher.settings" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
@@ -169,7 +170,7 @@
       <workItem from="1606893402563" duration="193000" />
       <workItem from="1606981763289" duration="41662000" />
       <workItem from="1607064357506" duration="22651000" />
-      <workItem from="1607152510969" duration="13043000" />
+      <workItem from="1607152510969" duration="14186000" />
     </task>
     <servers />
   </component>
