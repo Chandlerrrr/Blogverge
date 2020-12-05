@@ -67,18 +67,19 @@
                                             <button class="btn btn-info" role="button" type="submit" name="submitt" value="{{ post.pk }}">reply</button>
                                         </div>
                                     </form>
-
-                            {% if comment.replies.all %}
-                                <p class="font-weight-bold">Replies <code>{{ comment.replies.all.count }}</code></p>
-                                {% for reply in comment.replies.all %}
-                                        <div class="container  pt-0">
-                                            <div class="container rounded border border-info bg-white pt-0 ml-0">
-                                                <p class="font-weight-normal"><b>name :</b>&nbsp; {{ reply.name }}</p>
-                                                <p class="font-weight-normal">{{ reply.Text|urlize }}</p>
-                                            </div>
-                                        </div>
-                                {% endfor %}
-                            {% endif %}
+                                    {% if comment.replies.all %}
+                                        <p class="font-weight-bold">Replies <code>{{ comment.replies.all.count }}</code></p>
+                                        {% for reply in comment.replies.all %}
+                                            {% if reply in comment.replies.all %}
+                                                <div class="container  pt-0">
+                                                    <div class="container rounded border border-info bg-white pt-0 ml-0">
+                                                        <p class="font-weight-normal"><b>name :</b>&nbsp; {{ reply.name }}</p>
+                                                        <p class="font-weight-normal">{{ reply.Text|urlize }}</p>
+                                                    </div>
+                                                </div>
+                                            {% endif %}
+                                        {% endfor %}
+                                    {% endif %}
                             </div>
                         </div>
                     <hr>
@@ -91,7 +92,7 @@
                         <p class="text-muted">Tell us what do you think?. <3 </p>
                         <div class="row">
                         &nbsp; &nbsp;
-                        <form action="{% url 'like_post' post.pk %}" method="post">
+                        <form action="{% url 'like_post' po  st.pk %}" method="post">
                             {% csrf_token %}
                             <button type="submit"  name="post_id"  value="{{ post.id }}"><i class="fa fa-thumbs-up" aria-hidden="true"></i><p class="font-weight-light"></p></button> - <small class="text-muted">{{ post.total_likes }} Like {{ post.total_likes|pluralize }} </small>
                         </form> &nbsp; &nbsp; &nbsp;
