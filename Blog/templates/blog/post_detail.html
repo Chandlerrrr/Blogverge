@@ -21,11 +21,11 @@
                         <img class="img-thumbnail"  src="{{ object.header_image.url }}" style="align-items: center">
                     </div>
                     <p class="article-content">{{ object.content|safe }}</p>
+                    <div class="row">
+                        &nbsp; <div class="fb-like" data-href="https://blogverge.herokuapp.com/post/{{ post.id }}" data-width="" data-layout="button_count" data-action="like" data-size="small" data-share="true"></div> <br>
+                        &nbsp;<a href="https://twitter.com/share?text={{ object.title }}&ref_src=twsrc%5Etfw&hashtags={{ object.tags }}" class="twitter-share-button" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                    </div>
                 </div>
-        <div class="row">
-            &nbsp; <div class="fb-like" data-href="https://blogverge.herokuapp.com/post/{{ post.id }}" data-width="" data-layout="button_count" data-action="like" data-size="small" data-share="true"></div> <br>
-            &nbsp;<a href="https://twitter.com/share?text={{ object.title }}&ref_src=twsrc%5Etfw&hashtags={{ object.tags }}" class="twitter-share-button" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-        </div>
     </div>
         <div class="media content-section">
         <div class="media-body">
