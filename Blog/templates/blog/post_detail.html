@@ -27,10 +27,16 @@
                 </div>
                     <div class="fb-like" data-href="https://blogverge.herokuapp.com/post/{{ post.id }}" data-width="" data-layout="button_count" data-action="like" data-size="small" data-share="true"></div> &nbsp; &nbsp;
                     <a class="twitter-share-button"
-                       href="https://twitter.com/intent/tweet?text={{ object.title }} - {{ object.content| truncatechars:350 }} - &nbsp; {{ post.get_absolute_url }}"
+                       href="https://twitter.com/intent/tweet?text={{ object.title }} - {{ object.content|safe| truncatechars:200 }}: {{ request.get_full_path }}"
                        data-size="large"><i class="fa fa-twitter-square" aria-hidden="true"></i>
                         Tweet</a>
-                
+                    <div class="container">
+                        <span id="rateMe1"></span>
+                    </div>
+
+                    <!-- rating.js file -->
+                    <script src="js/addons/rating.js"></script>
+
     </div>
 
         <div class="media content-section">
@@ -116,7 +122,7 @@
                 <a href="{% url 'blog-home' %}" class="btn btn-info" role="button">Back</a>
                 <br>
                 <hr>
-        <h4 class="font-weight-normal"> Fb Comment  </h4>
+        <h4 class="font-weight-normal">Comment with your facebook account </h4>
         <div class="fb-comments" data-href="https://blogverge.herokuapp.com/post/{{ post.id }}" data-numposts="3" data-width=""></div>
         </div>
         </div>
