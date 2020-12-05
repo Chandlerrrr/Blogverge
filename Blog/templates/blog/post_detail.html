@@ -24,7 +24,11 @@
                     </div>
                     <p class="article-content">{{ object.content|safe }}</p>
                 <br>
-                <div class="fb-share-button" data-href="https://blogverge.herokuapp.com/post/{{ post.id }}" data-layout="button_count" data-size="large"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fblogverge.herokuapp.com%2Fpost%2F4&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div> <br>
+                <div class="fb-like" data-href="https://blogverge.herokuapp.com/post/{{ post.id }}" data-width="" data-layout="button_count" data-action="like" data-size="small" data-share="true"></div>
+                    <a class="twitter-share-button"
+                       href="https://twitter.com/intent/tweet?text={{ object.title }}"
+                       data-size="large">
+                        Tweet</a>
                 </div>
     </div>
 
@@ -111,7 +115,7 @@
                 <a href="{% url 'blog-home' %}" class="btn btn-info" role="button">Back</a>
                 <br>
                 <hr>
-        <h3 class="font-weight-normal"> Fb Comment  </h3>
+        <h4 class="font-weight-normal"> Fb Comment  </h4>
         <div class="fb-comments" data-href="https://blogverge.herokuapp.com/post/{{ post.id }}" data-numposts="3" data-width=""></div>
         </div>
         </div>
