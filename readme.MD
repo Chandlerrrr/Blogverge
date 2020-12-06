@@ -1,4 +1,4 @@
-# Full featured Web Blog
+# BLOGVERGE
 
 ## Django / Html / Css /Sqlite / AWS / Heroku
 
