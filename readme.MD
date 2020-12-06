@@ -9,8 +9,7 @@
 
 A Web Blog made with Python and Django with the help of Html and CSS to get some styling and a give a better look to the website.
 
-This site was built using [crispy-forms](https://django-crispy-forms.readthedocs.io/en/latest/) and also uses a Library called [Pillow](https://pypi.org/project/Pillow/) which helps in working with *images* in python.
-[bootstrap](https://getbootstrap.com/docs/4.0/getting-started/introduction/#starter-template) used for styling the page 
+A revolutionary blogging platform that is aimed at connecting the best of all worlds through the power of word. Blogup doesn't just provide you with amazing content but simultaneously understands its responsibility towards the writers, and therefore helps them to pursue writing professionally. COMING SOON!
 
 
 ### Features includes :
