@@ -1,4 +1,4 @@
-# Contributing to Transcriptase
+# Contributing to Blogverge
 We love your input! We want to make contributing to this project as easy and transparent as possible, whether it's:
 
 - Reporting a bug
@@ -6,6 +6,7 @@ We love your input! We want to make contributing to this project as easy and tra
 - Submitting a fix
 - Proposing new features
 - Becoming a maintainer
+- want to be added as contributor? mail me at gautamkhattri07@gmail.com and tell me how can you help . :)
 
 ## We Develop with Github
 We use github to host code, to track issues and feature requests, as well as accept pull requests.
@@ -20,10 +21,10 @@ Pull requests are the best way to propose changes to the codebase (we use [Githu
 5. Make sure your code lints.
 6. Issue that pull request!
 
-## Any contributions you make will be under the MIT Software License
-In short, when you submit code changes, your submissions are understood to be under the same [MIT License](http://choosealicense.com/licenses/mit/) that covers the project. Feel free to contact the maintainers if that's a concern.
+## Any contributions you make will be under the GPL Software License
+In short, when you submit code changes, your submissions are understood to be under the same [GPL License](https://github.com/Chandlerrrr/Blogverge/blob/master/LICENSE) that covers the project. Feel free to contact me at gautamkhattri07@gmail.com if that's a concern.
 
-## Report bugs using Github's [issues](https://github.com/briandk/transcriptase-atom/issues)
+## Report bugs using Github's [issues](https://github.com/Chandlerrrr/Blogverge/issues/new)
 We use GitHub issues to track public bugs. Report a bug by [opening a new issue](); it's that easy!
 
 ## Write bug reports with detail, background, and sample code
@@ -34,7 +35,7 @@ We use GitHub issues to track public bugs. Report a bug by [opening a new issue]
 - A quick summary and/or background
 - Steps to reproduce
   - Be specific!
-  - Give sample code if you can. [My stackoverflow question](http://stackoverflow.com/q/12488905/180626) includes sample code that *anyone* with a base R setup can run to reproduce what I was seeing
+  - Give sample code if you can.
 - What you expected would happen
 - What actually happens
 - Notes (possibly including why you think this might be happening, or stuff you tried that didn't work)
