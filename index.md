@@ -1,37 +1,51 @@
-## Welcome to GitHub Pages
+![Blogverge logo](https://github.com/Chandlerrrr/Blogverge/blob/master/staticfiles/blog/logo.png)
 
-You can use the [editor on GitHub](https://github.com/Chandlerrrr/WebBlog/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+-------------------------------------------------------------------------------------------------
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
 
-### Markdown
+# BLOGVERGE
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+## Django / Html / Css /Sqlite / AWS / Heroku
 
-```markdown
-Syntax highlighted code block
+A Web Blog made with Python and Django with the help of Html and CSS to get some styling and a give a better look to the website.
 
-# Header 1
-## Header 2
-### Header 3
+This site was built using [crispy-forms](https://django-crispy-forms.readthedocs.io/en/latest/) and also uses a Library called [Pillow](https://pypi.org/project/Pillow/) which helps in working with *images* in python.
+[bootstrap](https://getbootstrap.com/docs/4.0/getting-started/introduction/#starter-template) used for styling the page 
 
-- Bulleted
-- List
 
-1. Numbered
-2. List
+### Features includes :
 
-**Bold** and _Italic_ and `Code` text
+- login/ Signup/ Forget password
 
-[Link](url) and ![Image](src)
-```
+- Search Bar
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+- CreatePost
 
-### Jekyll Themes
+- Update/Delete Post
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/Chandlerrrr/WebBlog/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+- Setup your Profile 
 
-### Support or Contact
+- upload image to your Post
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+- Email and Phone otp Authentication
+
+- Contacting another User by Message
+
+- Commenting on another User's Post
+
+- liking a Post
+
+- Using AWS S3 for file uploads
+
+- Social media Connect / Share
+
+- Database (Postgresql)
+
+- enabling Https with a free ssl/tls certificate 
+
+- Deploy to Heroku 
+
+- Ai Chat Bot 
+
+
+Work in progress 
