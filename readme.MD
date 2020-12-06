@@ -15,9 +15,9 @@ This site was built using [crispy-forms](https://django-crispy-forms.readthedocs
 
 ### Features includes :
 
-- login 
+- login/ Signup/ Forget password
 
-- signup
+- Search Bar
 
 - CreatePost
 
@@ -29,7 +29,7 @@ This site was built using [crispy-forms](https://django-crispy-forms.readthedocs
 
 - Email and Phone otp Authentication
 
-- Contacting another User
+- Contacting another User by Message
 
 - Commenting on another User's Post
 
@@ -37,10 +37,15 @@ This site was built using [crispy-forms](https://django-crispy-forms.readthedocs
 
 - Using AWS S3 for file uploads
 
+- Social media Connect / Share
+
+- Database (Postgresql)
+
 - enabling Https with a free ssl/tls certificate 
 
 - Deploy to Heroku 
 
+- Ai Chat Bot 
 
 
 Work in progress 
