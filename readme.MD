@@ -1,3 +1,8 @@
+![Blogverge logo](https://github.com/Chandlerrrr/Blogverge/blob/master/staticfiles/blog/logo.png)
+
+-------------------------------------------------------------------------------------------------
+
+
 # BLOGVERGE
 
 ## Django / Html / Css /Sqlite / AWS / Heroku
