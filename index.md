@@ -1,4 +1,4 @@
-![Blogverge logo](https://github.com/Chandlerrrr/Blogverge/blob/master/staticfiles/blog/logo.png)
+![Blogverge logo](https://github.com/Chandlerrrr/Blogverge/blob/gh-pages/logo.png)
 
 -------------------------------------------------------------------------------------------------
 
