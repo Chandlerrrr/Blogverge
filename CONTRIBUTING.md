@@ -6,6 +6,8 @@ We love your input! We want to make contributing to this project as easy and tra
 - Submitting a fix
 - Proposing new features
 - Becoming a maintainer
+- You don't have to be an expert to contribute . we are looking for contributors who want to learn and grow their skills.
+- Want to make a smallest suggestion? or
 - want to be added as contributor? mail me at gautamkhattri07@gmail.com and tell me how can you help . :)
 
 ## We Develop with Github
@@ -51,5 +53,4 @@ I'm again borrowing these from [Facebook's Guidelines](https://github.com/facebo
 ## License
 By contributing, you agree that your contributions will be licensed under its MIT License.
 
-## References
-This document was adapted from the open-source contribution guidelines for [Facebook's Draft](https://github.com/facebook/draft-js/blob/a9316a723f9e918afde44dea68b5f9f39b7d9b00/CONTRIBUTING.md)
+
