@@ -49,3 +49,5 @@ This site was built using [crispy-forms](https://django-crispy-forms.readthedocs
 
 
 Work in progress 
+
+Made with ❤ by :octocat: @Chandlerrrr - Gautamrkh
